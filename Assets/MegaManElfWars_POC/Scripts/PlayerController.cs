@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public PlayerInputController InputController { get; private set; }
     private SpriteRenderer sRenderer;
     private BoxCollider2D bodyCollider;
+
     private BoxCollider2D upperLadderCollider;
     private BoxCollider2D lowerLadderCollider;
     #endregion
@@ -62,6 +63,9 @@ public class PlayerController : MonoBehaviour
         bodyCollider = GetComponent<BoxCollider2D>();
         sRenderer = GetComponentInChildren<SpriteRenderer>();
         Animator = GetComponentInChildren<Animator>();
+        upperLadderCollider = GameObject.FindGameObjectWithTag("upperLadder").GetComponent<BoxCollider2D>();
+        lowerLadderCollider = GameObject.FindGameObjectWithTag("lowerLadder").GetComponent<BoxCollider2D>();
+        TriggerLadderColliders(false); // Defaults to off.
         InputController = GetComponent<PlayerInputController>();
         Gravity = 2 * movementData.jumpHeight / Mathf.Pow(movementData.timeToJumpApex, 2); // TODO: Put this in the level object and have Level Manager read this value where needed.
         JumpForce = Gravity * movementData.timeToJumpApex;
@@ -139,15 +143,17 @@ public class PlayerController : MonoBehaviour
         var yStart = bodyCollider.bounds.min.y;
         var xStart = horizontalInput == 1 ? bodyCollider.bounds.max.x : bodyCollider.bounds.min.x;
         bottomEdgePoint.Set(xStart, yStart);
-        var rayOrigin = bottomEdgePoint;
         for (var i = 0; i < horizontalRayCount; i++)
         {
             if (i == 0) continue;
 
+            var rayOrigin = bottomEdgePoint;
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * horizontalInput * 0.3f, wallCheckDistance, groundLayer);
+            Debug.DrawRay(rayOrigin, Vector2.right * horizontalInput * wallCheckDistance, Color.green);
             if (hit.collider != null)
             {
+                Debug.Log("We're touching a wall right now.");
                 return true;
             }
         }
@@ -182,11 +188,18 @@ public class PlayerController : MonoBehaviour
         if (goingDirection != 0 && goingDirection != FacingDirection) Flip();
     }
 
+
+    public void MoveToTopOfLadder()
+    {
+        transform.position = Vector2.Lerp(transform.position, upperLadderCollider.transform.position, 2f);
+        SetVelocity(Vector2.zero);
+    }
+
     public void TriggerBodyCollider(bool state) => bodyCollider.enabled = state;
     public void TriggerLadderColliders(bool state)
     {
-        upperLadderCollider.enabled = true;
-        lowerLadderCollider.enabled = true;
+        upperLadderCollider.enabled = state;
+        lowerLadderCollider.enabled = state;
     }
     public void SetGravityScale(float value) => Rigidbody.gravityScale = value;
 
@@ -222,9 +235,14 @@ public class PlayerController : MonoBehaviour
 
     private void DebugDraw()
     {
+        // The ground.
         for (var i = 0; i < verticalRayCount; i++)
         {
-            Debug.DrawRay(bottomLeftColiderPoint + Vector2.right * verticalRaySpacing * i, Vector2.up * -2, Color.red);
+            Debug.DrawRay(bottomLeftColiderPoint + Vector2.right * verticalRaySpacing * i, Vector2.up * groundCheckDistance, Color.red);
+        }
+
+        for (var i = 0; i < horizontalRayCount; i++)
+        {
         }
     }
     void OnDrawGizmos()

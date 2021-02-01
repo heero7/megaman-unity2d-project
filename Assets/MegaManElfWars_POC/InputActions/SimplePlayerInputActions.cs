@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputActions/SimplePlayerInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/MegaManElfWars_POC/InputActions/SimplePlayerInputActions.inputactions'
 
 using System;
 using System.Collections;

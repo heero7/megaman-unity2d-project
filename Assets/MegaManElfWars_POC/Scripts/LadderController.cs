@@ -1,27 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FinishedClimbingEventPosition
+{
+    Top,
+    Bottom
+}
 public class LadderController : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public static event Action<FinishedClimbingEventPosition> FinishedClimbingEvent;
+    public event Action DamagedWhileClimbing;
+
+    void OnTriggerExit2D(Collider2D other)
     {
-        var o = other.gameObject;
-        var input = Input.GetAxisRaw("Vertical");
-        if (other.CompareTag("upperLadder") && input == 1)
+        // Test.
+
+        var player = other.gameObject.GetComponentInParent<PlayerController>();
+        if (player == null) return;
+        var input = player.InputController.NormalizedInputY;
+        if (other.CompareTag("upperLadder") && input == 1) // TODO: Look for a way NOT to have to read the player object. Can't we check some other way?
         {
             // Do stuff when reaching the top.
-            Debug.Log("Head touched the top");
+            FinishedClimbingEvent?.Invoke(FinishedClimbingEventPosition.Top);
             // This is where we need to be at the moment.
-            var player = other.gameObject.GetComponentInParent<PlayerController>();
             //player.MoveInGrid(other.transform.position);
             //player.StopClimbing();
         }
         if (other.CompareTag("lowerLadder") && input == -1)
         {
             // Do stuff when reaching the bottom.
-            Debug.Log("Feet touched the bottom");
-            var player = other.gameObject.GetComponentInParent<PlayerController>();
+            FinishedClimbingEvent?.Invoke(FinishedClimbingEventPosition.Top);
             //player.StopClimbing();
         }
     }
