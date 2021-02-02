@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: e5e83c3ea272dbf489018763281317c9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4911007638306559943
+    second: chargeLayer1_0
+  - first:
+      213: -370123421657422437
+    second: chargeLayer1_1
+  - first:
+      213: 5331871041971307705
+    second: chargeLayer1_2
+  - first:
+      213: 3119923224539743281
+    second: chargeLayer1_3
+  - first:
+      213: 4096797099720775388
+    second: chargeLayer1_4
+  - first:
+      213: -53640199591689337
+    second: chargeLayer1_5
+  - first:
+      213: -4251822144284523020
+    second: chargeLayer1_6
+  - first:
+      213: 1163389369475149576
+    second: chargeLayer1_7
+  - first:
+      213: -6975825705343398337
+    second: chargeLayer1_8
+  - first:
+      213: -6349633103128505762
+    second: chargeLayer1_9
+  - first:
+      213: 7177618334665573823
+    second: chargeLayer1_10
+  - first:
+      213: 1660847173817661152
+    second: chargeLayer1_11
+  - first:
+      213: 6942055299349739276
+    second: chargeLayer1_12
+  - first:
+      213: 3007029559151686802
+    second: chargeLayer1_13
+  - first:
+      213: 432163988882017531
+    second: chargeLayer1_14
+  - first:
+      213: -7924538460113115090
+    second: chargeLayer1_15
+  - first:
+      213: -3306170949433967975
+    second: chargeLayer1_16
+  - first:
+      213: 8123671563658102781
+    second: chargeLayer1_17
+  - first:
+      213: -5403126527465311026
+    second: chargeLayer1_18
+  - first:
+      213: 3996827511851057989
+    second: chargeLayer1_19
+  - first:
+      213: -1741125576027066803
+    second: chargeLayer1_20
+  - first:
+      213: 8766878265724967481
+    second: chargeLayer1_21
+  - first:
+      213: 1920037734057718805
+    second: chargeLayer1_22
+  - first:
+      213: 3766688268419829187
+    second: chargeLayer1_23
+  - first:
+      213: 3290742777267111629
+    second: chargeLayer1_24
+  - first:
+      213: -2508072235026343659
+    second: chargeLayer1_25
+  - first:
+      213: -1854162160105988681
+    second: chargeLayer1_26
+  - first:
+      213: 1456375035322656302
+    second: chargeLayer1_27
+  - first:
+      213: 3928948982972123110
+    second: chargeLayer1_28
+  - first:
+      213: 1932443602172935672
+    second: chargeLayer1_29
+  - first:
+      213: -575687447278429872
+    second: chargeLayer1_30
+  - first:
+      213: 6679360978341941241
+    second: chargeLayer1_31
+  - first:
+      213: 3212378594976745738
+    second: chargeLayer1_32
+  - first:
+      213: 8925219896410518962
+    second: chargeLayer1_33
+  - first:
+      213: 5022667313421241761
+    second: chargeLayer1_34
+  - first:
+      213: -7395331054999218726
+    second: chargeLayer1_35
+  - first:
+      213: -1454207023925305649
+    second: chargeLayer1_36
+  - first:
+      213: 5755219151068641032
+    second: chargeLayer1_37
+  - first:
+      213: -2243534527411647616
+    second: chargeLayer1_38
+  - first:
+      213: -6654244339102579612
+    second: chargeLayer1_39
+  - first:
+      213: -1168811024199982283
+    second: chargeLayer1_40
+  - first:
+      213: -1120604769098852211
+    second: chargeLayer1_41
+  - first:
+      213: 9195074835109510834
+    second: chargeLayer1_42
+  - first:
+      213: 1338680697103118017
+    second: chargeLayer1_43
+  - first:
+      213: -6845640149404179019
+    second: chargeLayer1_44
+  - first:
+      213: 6928383716581917661
+    second: chargeLayer1_45
+  - first:
+      213: 4381095387126174481
+    second: chargeLayer1_46
+  - first:
+      213: 6165446317281107070
+    second: chargeLayer1_47
+  - first:
+      213: -7629246269489449937
+    second: chargeLayer1_48
+  - first:
+      213: -7299846267451644070
+    second: chargeLayer1_49
+  - first:
+      213: -8876541470882510458
+    second: chargeLayer1_50
+  - first:
+      213: -5600639215406874653
+    second: chargeLayer1_51
+  - first:
+      213: -8370276026462032662
+    second: chargeLayer1_52
+  - first:
+      213: 1099696540770604727
+    second: chargeLayer1_53
+  - first:
+      213: -7156637127418718918
+    second: chargeLayer1_54
+  - first:
+      213: -1021558082563742365
+    second: chargeLayer1_55
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chargeLayer1_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 12
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938e185929898dbb0800000000000000
+      internalID: -4911007638306559943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 9
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95ae0185be0ddaf0800000000000000
+      internalID: -370123421657422437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 10
+        width: 86
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b444e4967c9ef940800000000000000
+      internalID: 5331871041971307705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_3
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 12
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134ce2584a13c4b20800000000000000
+      internalID: 3119923224539743281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_4
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 13
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd615b5a14fbad830800000000000000
+      internalID: 4096797099720775388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_5
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 18
+        width: 77
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78308adc58e614ff0800000000000000
+      internalID: -53640199591689337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_6
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 17
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f508c1794e7ef4c0800000000000000
+      internalID: -4251822144284523020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chargeLayer1_7
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 25
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f2807b770352010800000000000000
+      internalID: 1163389369475149576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

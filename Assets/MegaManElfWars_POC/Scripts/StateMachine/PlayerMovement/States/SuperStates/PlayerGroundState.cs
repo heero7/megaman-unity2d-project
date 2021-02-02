@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerGroundState : PlayerMovementState
 {
     private bool isGrounded;
+    public bool ClimbingEventEnd { get; set; }
 
     public PlayerGroundState(PlayerController player, StateMachine<PlayerMovementState> movementStateMachine, string animationName) : base(player, movementStateMachine, animationName)
     {
@@ -23,7 +24,7 @@ public class PlayerGroundState : PlayerMovementState
             movementStateMachine.ChangeState(player.Rising);
             return;
         }
-        else if (!isGrounded)
+        else if (!isGrounded && !ClimbingEventEnd)
         {
             movementStateMachine.ChangeState(player.Falling);
             return;
@@ -33,5 +34,11 @@ public class PlayerGroundState : PlayerMovementState
             movementStateMachine.ChangeState(player.Dash);
             return;
         }
+    }
+
+    public override void OnExit()
+    {
+        ClimbingEventEnd = false;
+        base.OnExit();
     }
 }

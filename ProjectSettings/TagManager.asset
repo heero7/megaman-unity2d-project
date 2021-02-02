@@ -8,6 +8,8 @@ TagManager:
   - Debug
   - upperLadder
   - lowerLadder
+  - chargeFX1
+  - chargeFX2
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2732107771
+    locked: 0
+  - name: FX
+    uniqueID: 3685102543
     locked: 0
   - name: Ladder
     uniqueID: 2743193493

@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask ladderLayer;
     [SerializeField] private float groundCheckDistance = .025f;
     [SerializeField] private float wallCheckDistance = .02f;
+    [SerializeField] public float attackWait = .02f;
 
     #region StateMachines
+    // Movement
     public StateMachine<PlayerMovementState> MovementStateMachine { get; private set; }
     public PlayerIdleState Idle { get; private set; }
     public PlayerRunState Run { get; private set; }
@@ -23,7 +25,10 @@ public class PlayerController : MonoBehaviour
     public PlayerWallSlideState WallSlide { get; private set; }
     public PlayerDashState Dash { get; private set; }
     public PlayerClimbingState ClimbingLadder { get; private set; }
-    private StateMachine<PlayerActionState> actionStateMachine;
+    // Action
+    public StateMachine<PlayerActionState> ActionStateMachine { get; private set; } // TODO: a lot of power with this accesibility.
+    public NoActionState NoAction { get; private set; }
+    public MegamanRegularAttack Attack { get; private set; }
     #endregion
 
     #region Cached Variables
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
         JumpForce = Gravity * movementData.timeToJumpApex;
         // TODO: Setup upper and lower colliders.
         MovementStateMachine = new StateMachine<PlayerMovementState>();
-        actionStateMachine = new StateMachine<PlayerActionState>();
+        ActionStateMachine = new StateMachine<PlayerActionState>();
     }
 
     void Start()
@@ -79,6 +84,9 @@ public class PlayerController : MonoBehaviour
         FacingDirection = 1;
         SetupRaySpacingValues();
         InitializeStateMachine();
+        InitActionStateMachine();
+        Attack.charge1 = GameObject.FindGameObjectWithTag("chargeFX1").GetComponent<Animator>();
+        Attack.charge2 = GameObject.FindGameObjectWithTag("chargeFX2").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -87,6 +95,7 @@ public class PlayerController : MonoBehaviour
         DebugDraw();
         CurrentVelocity = Rigidbody.velocity;
         MovementStateMachine.CurrentState.OnExecute();
+        ActionStateMachine.CurrentState.OnExecute();
     }
 
     void FixedUpdate()
@@ -191,7 +200,9 @@ public class PlayerController : MonoBehaviour
 
     public void MoveToTopOfLadder()
     {
+        Debug.Log($"Player is moving to position: {upperLadderCollider.transform.position}");
         transform.position = Vector2.Lerp(transform.position, upperLadderCollider.transform.position, 2f);
+        Rigidbody.velocity = Vector2.zero;
         SetVelocity(Vector2.zero);
     }
 
@@ -219,6 +230,13 @@ public class PlayerController : MonoBehaviour
         Dash = new PlayerDashState(this, MovementStateMachine, "Dash");
         ClimbingLadder = new PlayerClimbingState(this, MovementStateMachine, "ClimbLadder");
         MovementStateMachine.Init(Idle);
+    }
+
+    private void InitActionStateMachine()
+    {
+        NoAction = new NoActionState(this, ActionStateMachine, MovementStateMachine);
+        Attack = new MegamanRegularAttack(this, ActionStateMachine, MovementStateMachine);
+        ActionStateMachine.Init(NoAction);
     }
 
     private void SetupRaySpacingValues()

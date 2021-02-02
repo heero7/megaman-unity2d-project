@@ -19,13 +19,13 @@ public class PlayerActionState : IState
 
     public virtual void OnEnter()
     {
-        player.Animator.SetBool("StateAnimationName", true);
+        //player.Animator.SetBool("StateAnimationName", true);
     }
 
     public virtual void OnExecute() {}
 
     public virtual void OnExit()
     {
-        player.Animator.SetBool("StateAnimationName", false);
+        //player.Animator.SetBool("StateAnimationName", false);
     }
 }

@@ -18,8 +18,20 @@ public class PlayerInputController : MonoBehaviour
         NormalizedInputY = (int)(rawMovementInput * Vector2.up).normalized.y;
     }
 
-    public void OnJump(InputAction.CallbackContext ctx) => JumpPressed = ctx.ReadValueAsButton();
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        var value1 = ctx.performed;
+        var value2 = ctx.canceled;
+        //if (value1) Debug.Log($"Jump [Performed]: {value1}");
+        //if (value2) Debug.Log($"Jump [Canceled]: {value2}");
+        JumpPressed = ctx.ReadValueAsButton();
+
+    }
     public void OnDash(InputAction.CallbackContext ctx) => DashPressed = ctx.ReadValueAsButton();
-    public void OnRegularAttack(InputAction.CallbackContext ctx) => AttackPressed = ctx.ReadValueAsButton();
+    public void OnRegularAttack(InputAction.CallbackContext ctx) 
+    {
+        AttackPressed = ctx.ReadValueAsButton();
+    }
+    public void ResetAttack() => AttackPressed = false;
     public void OnSpecialAttack(InputAction.CallbackContext ctx) => SpecialAttackPressed = ctx.ReadValueAsButton();
 }

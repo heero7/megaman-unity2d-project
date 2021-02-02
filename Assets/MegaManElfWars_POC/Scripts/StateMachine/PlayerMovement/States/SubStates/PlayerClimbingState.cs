@@ -17,8 +17,7 @@ public class PlayerClimbingState : PlayerMovementState
     {
         base.OnExecute();
         player.SetVelocityY(verticalInput * player.MovementData.ladderClimbSpeed);
-        if (player.CurrentVelocity.y != 0.0f) player.Animator.speed = 1; // Do an additional check. If we're going down, play it backwards.
-        else player.Animator.speed = 0;
+        player.Animator.SetFloat("DirectionY", verticalInput);
 
         if (jumpInputPressed)
         {
@@ -32,6 +31,8 @@ public class PlayerClimbingState : PlayerMovementState
         }
         else if (climbingEventEnd)
         {
+            player.Idle.ClimbingEventEnd = true;
+            player.SetVelocityY(Vector2.zero.y);
             movementStateMachine.ChangeState(player.Idle);
             if (endingPosition == FinishedClimbingEventPosition.Top) player.MoveToTopOfLadder();
             player.TriggerLadderColliders(true);
@@ -61,6 +62,7 @@ public class PlayerClimbingState : PlayerMovementState
     public void StoppedClimbing(FinishedClimbingEventPosition ladderPos)
     {
         Debug.Log($"Stopped climbing ladder event. Player reached the {ladderPos}");
+        endingPosition = ladderPos;
         climbingEventEnd = true;
     }
 }

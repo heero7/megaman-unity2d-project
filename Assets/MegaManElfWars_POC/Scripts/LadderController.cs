@@ -31,7 +31,7 @@ public class LadderController : MonoBehaviour
         if (other.CompareTag("lowerLadder") && input == -1)
         {
             // Do stuff when reaching the bottom.
-            FinishedClimbingEvent?.Invoke(FinishedClimbingEventPosition.Top);
+            FinishedClimbingEvent?.Invoke(FinishedClimbingEventPosition.Bottom);
             //player.StopClimbing();
         }
     }

@@ -19,6 +19,7 @@ public class DebugUtility : MonoBehaviour
     void Update()
     {
         movementState.text = player.MovementStateMachine.CurrentState.ToString();
+        actionState.text = player.ActionStateMachine.CurrentState.ToString();
         facingDirection.text = player.FacingDirection.ToString();
         if (keyboard == null && gamepad == null) Debug.LogWarning("No recognized input is connected.");
         if ((keyboard != null && keyboard.rKey.isPressed) || (gamepad != null && gamepad.selectButton.isPressed))

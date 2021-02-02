@@ -27,5 +27,6 @@ public class PlayerIdleState : PlayerGroundState
     {
         base.OnEnter();
         player.SetVelocityX(0);
+        player.SetVelocityY(0);
     }
 }

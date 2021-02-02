@@ -240,7 +240,7 @@ public class @StandardPlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""381b6338-0530-48eb-900a-a59851547131"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
