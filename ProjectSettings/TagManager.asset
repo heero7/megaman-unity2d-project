@@ -10,6 +10,7 @@ TagManager:
   - lowerLadder
   - chargeFX1
   - chargeFX2
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - Ground
   - Ladder
-  - 
+  - FX
   - 
   - 
   - 
@@ -50,11 +51,11 @@ TagManager:
   - name: Ground
     uniqueID: 2732107771
     locked: 0
-  - name: FX
-    uniqueID: 3685102543
-    locked: 0
   - name: Ladder
     uniqueID: 2743193493
+    locked: 0
+  - name: FX
+    uniqueID: 3685102543
     locked: 0
   - name: Character
     uniqueID: 925192081

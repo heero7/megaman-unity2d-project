@@ -9,7 +9,7 @@ public class PlayerIdleState : PlayerGroundState
     {
         base.OnExecute();
 
-        if (horizontalInput != 0 && !player.IsTouchingWall(horizontalInput))
+        if (horizontalInput != 0 && !player.IsTouchingWall(horizontalInput) && !exitingState)
         {
             movementStateMachine.ChangeState(player.Run);
             return;
@@ -18,6 +18,7 @@ public class PlayerIdleState : PlayerGroundState
         var result = player.ClimbLadderRequest();
         if (result)
         {
+            player.SnapToLadderLocation();
             movementStateMachine.ChangeState(player.ClimbingLadder);
             return;
         }

@@ -17,6 +17,13 @@ MonoBehaviour:
   jumpHeight: 1.7
   timeToJumpApex: 0.4
   runSpeed: 3.5
-  dashSpeed: 6
   dashDuration: 0.4
   wallSlideSpeed: 2
+  wallJumpVelocity: 10
+  WallJumpAngle: {x: 2, y: 4}
+  wallClimbNoControlTimer: 0.1
+  ladderClimbSpeed: 2
+  dashSpeed: 6
+  DashDuration: 0.5
+  DashCoolDown: 1
+  DashJumpAerialSpeed: 1.79

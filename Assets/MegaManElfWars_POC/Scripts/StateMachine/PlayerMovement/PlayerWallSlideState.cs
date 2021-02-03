@@ -23,15 +23,33 @@ public class PlayerWallSlideState : PlayerMovementState
         base.OnExecute();
         player.SetVelocityY(-player.MovementData.wallSlideSpeed);
 
-        if (player.IsGrounded())
+        if (player.IsGrounded() && !exitingState)
         {
             movementStateMachine.ChangeState(player.Idle);
-            //return;
+            return;
+        }
+
+        if (jumpInputPressed && !exitingState)
+        {
+            player.InputController.UseJumpInput();
+            movementStateMachine.ChangeState(player.WallClimb);
+            return;
+        }
+
+        if (horizontalInput != player.FacingDirection)
+        {
+            movementStateMachine.ChangeState(player.Falling);
+            return;
         }
     }
 
     public override void OnExit()
     {
         base.OnExit();
+    }
+
+    public override string ToString()
+    {
+        return "WallSlide";
     }
 }

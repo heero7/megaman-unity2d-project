@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckDistance = .025f;
     [SerializeField] private float wallCheckDistance = .02f;
     [SerializeField] public float attackWait = .02f;
+    [SerializeField] public XBuster xBuster;
 
     #region StateMachines
     // Movement
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public PlayerWallSlideState WallSlide { get; private set; }
     public PlayerDashState Dash { get; private set; }
     public PlayerClimbingState ClimbingLadder { get; private set; }
+    public PlayerWallClimbState WallClimb { get; private set; }
     // Action
     public StateMachine<PlayerActionState> ActionStateMachine { get; private set; } // TODO: a lot of power with this accesibility.
     public NoActionState NoAction { get; private set; }
@@ -33,13 +36,15 @@ public class PlayerController : MonoBehaviour
 
     #region Cached Variables
     public Animator Animator { get; private set; }
-    public Rigidbody2D Rigidbody { get; private set; }
+    public Rigidbody2D Rigidbody2D { get; private set; }
     public PlayerInputController InputController { get; private set; }
     private SpriteRenderer sRenderer;
     private BoxCollider2D bodyCollider;
 
     private BoxCollider2D upperLadderCollider;
     private BoxCollider2D lowerLadderCollider;
+    [SerializeField] private Tilemap _ladders;
+    public Tilemap Ladders { get => _ladders; }
     #endregion
 
     #region Raycast Variables
@@ -59,12 +64,13 @@ public class PlayerController : MonoBehaviour
     public int FacingDirection { get; private set; }
     private Vector2 targetVelocity;
     private const float skinWidth = 0.015f;
+    private int directionOfLadderRequest;
 
     // Start is called before the first frame update
     void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Rigidbody.gravityScale = 0; // We will handle gravity with scripting.
+        Rigidbody2D = GetComponent<Rigidbody2D>();
+        Rigidbody2D.gravityScale = 0; // We will handle gravity with scripting.
         bodyCollider = GetComponent<BoxCollider2D>();
         sRenderer = GetComponentInChildren<SpriteRenderer>();
         Animator = GetComponentInChildren<Animator>();
@@ -93,7 +99,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         DebugDraw();
-        CurrentVelocity = Rigidbody.velocity;
+        CurrentVelocity = Rigidbody2D.velocity;
         MovementStateMachine.CurrentState.OnExecute();
         ActionStateMachine.CurrentState.OnExecute();
     }
@@ -124,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetVelocity(Vector2 velocity)
     {
-        Rigidbody.velocity = targetVelocity;
+        Rigidbody2D.velocity = targetVelocity;
         CurrentVelocity = targetVelocity;
     }
 
@@ -141,6 +147,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, groundCheckDistance, groundLayer);
             if (hit)
             {
+                Rising.DashJumping = false;
                 return true;
             }
         }
@@ -178,6 +185,7 @@ public class PlayerController : MonoBehaviour
         {
             if (InputController.NormalizedInputY == 1)
             {
+                directionOfLadderRequest = 1;
                 return true;
             }
         }
@@ -185,7 +193,7 @@ public class PlayerController : MonoBehaviour
         {
             if (InputController.NormalizedInputY == -1)
             {
-                Debug.Log("Requesting to go down the ladder.");
+                directionOfLadderRequest = -1;
                 return true;
             }
         }
@@ -202,8 +210,32 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log($"Player is moving to position: {upperLadderCollider.transform.position}");
         transform.position = Vector2.Lerp(transform.position, upperLadderCollider.transform.position, 2f);
-        Rigidbody.velocity = Vector2.zero;
+        Rigidbody2D.velocity = Vector2.zero;
+        // Todo: Maybe we can move until we are at a position where the raycast point = 0? Then we know we're touching the ground
+        // A good experiment would be to check IsGrounded and check the hit.point and see what that value is.
+        // If we store this we know the exact point we have to be, to be flat on the ground and cache the distance.
         SetVelocity(Vector2.zero);
+    }
+
+    public void SnapToLadderLocation()
+    {
+        var cellPos = WorldToCell(transform.position, Ladders);
+        var worldLadderPos = Ladders.GetCellCenterWorld(cellPos);
+        var additionalBoost = Vector3.up / 2;
+        if (directionOfLadderRequest == -1)
+        {
+            additionalBoost *= -1;
+        }
+        Rigidbody2D.MovePosition(IsGrounded() ? worldLadderPos + additionalBoost : worldLadderPos);
+    }
+
+    public Vector3Int WorldToCell(Vector3 vPosition, Tilemap t)
+    {
+        Vector3Int v3iPosition = new Vector3Int(
+          Mathf.FloorToInt(vPosition.x),
+          Mathf.FloorToInt(vPosition.y),
+          Mathf.FloorToInt(vPosition.z));
+        return (t.WorldToCell(v3iPosition));
     }
 
     public void TriggerBodyCollider(bool state) => bodyCollider.enabled = state;
@@ -212,7 +244,7 @@ public class PlayerController : MonoBehaviour
         upperLadderCollider.enabled = state;
         lowerLadderCollider.enabled = state;
     }
-    public void SetGravityScale(float value) => Rigidbody.gravityScale = value;
+    public void SetGravityScale(float value) => Rigidbody2D.gravityScale = value;
 
     private void Flip()
     {
@@ -229,6 +261,7 @@ public class PlayerController : MonoBehaviour
         WallSlide = new PlayerWallSlideState(this, MovementStateMachine, "WallSlide");
         Dash = new PlayerDashState(this, MovementStateMachine, "Dash");
         ClimbingLadder = new PlayerClimbingState(this, MovementStateMachine, "ClimbLadder");
+        WallClimb = new PlayerWallClimbState(this, MovementStateMachine, "WallClimb");
         MovementStateMachine.Init(Idle);
     }
 
@@ -242,7 +275,7 @@ public class PlayerController : MonoBehaviour
     private void SetupRaySpacingValues()
     {
         var bounds = bodyCollider.bounds;
-        bounds.Expand(-skinWidth);
+        // bounds.Expand(-skinWidth);
         var width = bounds.size.x;
         var height = bounds.size.y;
         verticalRayCount = Mathf.RoundToInt(width / .1f);

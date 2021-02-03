@@ -15,42 +15,32 @@ public class PlayerDashState : PlayerMovementState
         player.SetVelocityX(player.MovementData.dashSpeed * player.FacingDirection);
 
         var isPastDashTime = Time.time > startTime + player.MovementData.dashDuration;
-        if (isPastDashTime)
+        if (isPastDashTime || horizontalInput == player.FacingDirection * -1 || !player.InputController.DashHeld || player.IsTouchingWall(player.FacingDirection))
         {
-            if (player.IsGrounded()) 
+            if (player.IsGrounded())
             {
                 movementStateMachine.ChangeState(player.Idle);
             }
-            else 
+            else
             {
                 movementStateMachine.ChangeState(player.Falling);
             }
             return;
         }
 
-        //var pastDashTime = Time.time > StartTime + characterData.DashDuration;
-        // if (horizontalInput == player.FacingDirection * -1 || !dashReleased || pastDashTime || player.IsTouchingWall(player.FacingDirection)) // This is the opposite of where we're going.
-        // {
-        //     //if (pastDashTime) player.Anim.SetBool("DashingFullGrounded", true);
-        //     // TODO: Maybe add something similar to landing state here.
-
-        //     // Check where to go.
-
-        //     if (isGrounded) stateMachine.ChangeState(stateMachine.Idle);
-        //     else stateMachine.ChangeState(stateMachine.Falling);
-        //     return;
-        // }
-
-        // if (jumpPressed && isGrounded)
-        // {
-        //     player.InputHandler.JumpPressedExecuted();
-        //     stateMachine.ChangeState(stateMachine.Rising);
-        // }
+        if (player.InputController.JumpPressed && player.IsGrounded())
+        {
+            player.InputController.UseJumpInput();
+            movementStateMachine.ChangeState(player.Rising);
+            return;
+        }
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
+        // Lock on the Y axis
+        player.SetVelocityY(0);
         startTime = Time.time;
     }
 }

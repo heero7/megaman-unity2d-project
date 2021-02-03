@@ -19,8 +19,14 @@ public class PlayerClimbingState : PlayerMovementState
         player.SetVelocityY(verticalInput * player.MovementData.ladderClimbSpeed);
         player.Animator.SetFloat("DirectionY", verticalInput);
 
+        if(verticalInput == 0) player.CheckIfShouldFlip(horizontalInput);
+
         if (jumpInputPressed)
         {
+            // if we're also touching the ground layer.
+            // Snap to the location where it doesn't exist.
+            // Meh do this later.
+            player.InputController.UseJumpInput();
             movementStateMachine.ChangeState(player.Falling);
             player.Animator.SetBool("Falling", true); // Force the animation.
             player.TriggerBodyCollider(true);

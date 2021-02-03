@@ -11,6 +11,11 @@ public class PlayerRisingState : PlayerJumpState
     public override void OnExecute()
     {
         base.OnExecute();
+        if (DashJumping)
+        {
+            player.SetVelocityX(player.CurrentVelocity.x * player.MovementData.DashJumpAerialSpeed);
+        }
+
         if (player.CurrentVelocity.y <= 0f)
         {
             movementStateMachine.ChangeState(player.Falling);
@@ -21,6 +26,11 @@ public class PlayerRisingState : PlayerJumpState
     public override void OnEnter()
     {
         base.OnEnter();
+        if(player.InputController.DashHeld)
+        {
+            DashJumping = true;
+            player.SetVelocityX(player.CurrentVelocity.x * player.MovementData.DashJumpAerialSpeed);
+        }
         player.SetVelocityY(player.JumpForce);
     }
 }

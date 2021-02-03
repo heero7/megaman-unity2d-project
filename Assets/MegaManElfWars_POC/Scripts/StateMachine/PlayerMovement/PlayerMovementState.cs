@@ -4,6 +4,7 @@ public class PlayerMovementState : IState
     protected int horizontalInput;
     protected int verticalInput;
     protected bool jumpInputPressed;
+    protected bool exitingState;
     protected StateMachine<PlayerMovementState> movementStateMachine;
     protected readonly string animationName;
 
@@ -23,6 +24,7 @@ public class PlayerMovementState : IState
     public virtual void ApplyGravity() { }
     public virtual void OnEnter()
     {
+        exitingState = false;
         player.Animator.SetBool(animationName, true);
     }
 
@@ -34,6 +36,7 @@ public class PlayerMovementState : IState
     }
     public virtual void OnExit()
     {
+        exitingState = true;
         player.Animator.SetBool(animationName, false);
     }
 }

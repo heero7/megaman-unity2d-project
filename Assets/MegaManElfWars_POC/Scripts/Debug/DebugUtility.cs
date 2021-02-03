@@ -24,5 +24,10 @@ public class DebugUtility : MonoBehaviour
         if (keyboard == null && gamepad == null) Debug.LogWarning("No recognized input is connected.");
         if ((keyboard != null && keyboard.rKey.isPressed) || (gamepad != null && gamepad.selectButton.isPressed))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (keyboard != null && keyboard.enterKey.wasPressedThisFrame || gamepad != null && gamepad.startButton.wasPressedThisFrame)
+        {
+            if (Time.timeScale == 0) Time.timeScale = 1;
+            else Time.timeScale = 0;
+        }
     }
 }

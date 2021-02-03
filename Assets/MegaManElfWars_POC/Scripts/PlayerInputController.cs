@@ -8,6 +8,7 @@ public class PlayerInputController : MonoBehaviour
     public int NormalizedInputY { get; private set; }
     public bool JumpPressed { get; private set; }
     public bool DashPressed { get; private set; }
+    public bool DashHeld { get; private set; }
     public bool AttackPressed { get; private set; }
     public bool SpecialAttackPressed { get; private set; }
 
@@ -20,15 +21,33 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext ctx)
     {
-        var value1 = ctx.performed;
-        var value2 = ctx.canceled;
-        //if (value1) Debug.Log($"Jump [Performed]: {value1}");
-        //if (value2) Debug.Log($"Jump [Canceled]: {value2}");
-        JumpPressed = ctx.ReadValueAsButton();
-
+        if (ctx.started)
+        {
+            JumpPressed = true;
+        }
     }
-    public void OnDash(InputAction.CallbackContext ctx) => DashPressed = ctx.ReadValueAsButton();
-    public void OnRegularAttack(InputAction.CallbackContext ctx) 
+
+    public void UseJumpInput() => JumpPressed = false;
+
+    public void OnDash(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            DashPressed = true;
+        }
+
+        if (ctx.performed)
+        {
+            DashHeld = true;
+        }
+
+        if (ctx.canceled)
+        {
+            DashHeld = false;
+        }
+    }
+    public void UseDashInput() => DashPressed = false;
+    public void OnRegularAttack(InputAction.CallbackContext ctx)
     {
         AttackPressed = ctx.ReadValueAsButton();
     }

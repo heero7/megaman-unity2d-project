@@ -14,6 +14,7 @@ public class MegamanRegularAttack : PlayerActionState
     {
         base.OnEnter();
         player.Animator.SetFloat("RegularAttack", 1);
+        player.xBuster.FireBuster(0);
     }
 
     /**
@@ -41,6 +42,10 @@ public class MegamanRegularAttack : PlayerActionState
         if (!player.InputController.AttackPressed && !done) // We'll want to check a different context for chargin.
         {
             player.Animator.SetFloat(animName, 1);
+            var level = 0;
+            if (count > 30 && count < 100) level = 1;
+            else level = 2;
+            player.xBuster.FireBuster(level);
             next = 50;
             done = true;
             charge1.ResetTrigger("ChargeLevel1");
