@@ -54,9 +54,9 @@ TagManager:
   - name: Ladder
     uniqueID: 2743193493
     locked: 0
-  - name: FX
-    uniqueID: 3685102543
-    locked: 0
   - name: Character
     uniqueID: 925192081
+    locked: 0
+  - name: FX
+    uniqueID: 3685102543
     locked: 0

@@ -43,7 +43,16 @@ public class Projectile : MonoBehaviour
     {   
         if (other.CompareTag("Ground"))
         {
-            Instantiate(fx, transform.position, transform.rotation);
+            var flip = 1.0f;
+            if (direction == -1)
+            {
+                Instantiate(fx, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+            }
+            else 
+            {
+                Instantiate(fx, transform.position, transform.rotation);
+            }
+            
             Destroy(gameObject);
         }
     }

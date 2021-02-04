@@ -9,6 +9,7 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterMovementData movementData;
+    [SerializeField] public AttackData attackData;
     public CharacterMovementData MovementData { get => movementData; }
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask ladderLayer;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallCheckDistance = .02f;
     [SerializeField] public float attackWait = .02f;
     [SerializeField] public XBuster xBuster;
+    [SerializeField] public Animator muzzleAnimator;
 
     #region StateMachines
     // Movement
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     #region Cached Variables
     public Animator Animator { get; private set; }
+
     public Rigidbody2D Rigidbody2D { get; private set; }
     public PlayerInputController InputController { get; private set; }
     private SpriteRenderer sRenderer;

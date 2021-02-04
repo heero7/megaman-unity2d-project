@@ -11,15 +11,16 @@ public class NoActionState : PlayerActionState
     public override void OnEnter()
     {
         base.OnEnter();
-        player.Animator.SetFloat("RegularAttack", 0);
+        player.Animator.SetFloat(RegularAttackAnimName, 0);
     }
 
     public override void OnExecute()
     {
         base.OnExecute();
 
-        if (player.InputController.AttackPressed)
+        if (_attackPressed)
         {
+            player.InputController.UseAttackInput();
             actionStateMachine.ChangeState(player.Attack);
             return;
         }

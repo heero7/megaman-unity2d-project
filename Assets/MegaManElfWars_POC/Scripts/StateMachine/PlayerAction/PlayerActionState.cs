@@ -4,6 +4,10 @@ public class PlayerActionState : IState
     protected StateMachine<PlayerActionState> actionStateMachine;
     protected StateMachine<PlayerMovementState> movementStateMachine;
 
+    protected readonly string RegularAttackAnimName = "RegularAttack";
+    protected bool _attackPressed;
+    protected bool _attackHeld;
+
     private readonly string stateAnimationName;
 
     public PlayerActionState(
@@ -22,7 +26,11 @@ public class PlayerActionState : IState
         //player.Animator.SetBool("StateAnimationName", true);
     }
 
-    public virtual void OnExecute() {}
+    public virtual void OnExecute() 
+    {
+        _attackPressed = player.InputController.AttackPressed;
+        _attackHeld = player.InputController.AttackHeld;
+    }
 
     public virtual void OnExit()
     {

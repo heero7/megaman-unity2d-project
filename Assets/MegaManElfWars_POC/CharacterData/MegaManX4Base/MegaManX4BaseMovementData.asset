@@ -27,3 +27,4 @@ MonoBehaviour:
   DashDuration: 0.5
   DashCoolDown: 1
   DashJumpAerialSpeed: 1.79
+  hurtTime: 0.4

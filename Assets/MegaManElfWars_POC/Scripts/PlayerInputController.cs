@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
     public bool DashPressed { get; private set; }
     public bool DashHeld { get; private set; }
     public bool AttackPressed { get; private set; }
+    public bool AttackHeld { get; private set; }
     public bool SpecialAttackPressed { get; private set; }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -49,8 +50,21 @@ public class PlayerInputController : MonoBehaviour
     public void UseDashInput() => DashPressed = false;
     public void OnRegularAttack(InputAction.CallbackContext ctx)
     {
-        AttackPressed = ctx.ReadValueAsButton();
+        if (ctx.started)
+        {
+            AttackPressed = true;
+        }
+
+        if (ctx.performed)
+        {
+            AttackHeld = true;
+        }
+
+        if (ctx.canceled)
+        {
+            AttackHeld = false;
+        }
     }
-    public void ResetAttack() => AttackPressed = false;
+    public void UseAttackInput() => AttackPressed = false;
     public void OnSpecialAttack(InputAction.CallbackContext ctx) => SpecialAttackPressed = ctx.ReadValueAsButton();
 }
