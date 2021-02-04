@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public PlayerDashState Dash { get; private set; }
     public PlayerClimbingState ClimbingLadder { get; private set; }
     public PlayerWallClimbState WallClimb { get; private set; }
+    public PlayerHurtState Hurt { get; private set; }
     // Action
     public StateMachine<PlayerActionState> ActionStateMachine { get; private set; } // TODO: a lot of power with this accesibility.
     public NoActionState NoAction { get; private set; }
@@ -262,6 +263,7 @@ public class PlayerController : MonoBehaviour
         Dash = new PlayerDashState(this, MovementStateMachine, "Dash");
         ClimbingLadder = new PlayerClimbingState(this, MovementStateMachine, "ClimbLadder");
         WallClimb = new PlayerWallClimbState(this, MovementStateMachine, "WallClimb");
+        Hurt = new PlayerHurtState(this, MovementStateMachine, "Hurt");
         MovementStateMachine.Init(Idle);
     }
 

@@ -21,4 +21,5 @@ public class CharacterMovementData : ScriptableObject
     public float DashDuration = 0.5f;
     public float DashCoolDown = 1f;
     [Range(1f,2f)] public float DashJumpAerialSpeed = 1.5f;
+    public float hurtTime = 1f;
 }
