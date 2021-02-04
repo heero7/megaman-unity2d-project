@@ -28,6 +28,13 @@ public class PlayerHurtState : PlayerMovementState
     public override void OnExecute()
     {
         player.StartCoroutine(Stall());
+    }
+
+    IEnumerator Stall()
+    {
+        Debug.Log("Player took damage");
+        yield return new WaitForSeconds(player.MovementData.hurtTime);
+        
         if (player.IsGrounded())
         {
             movementStateMachine.ChangeState(player.Idle);
@@ -36,17 +43,12 @@ public class PlayerHurtState : PlayerMovementState
         {
             movementStateMachine.ChangeState(player.Falling);
         }
-    }
-
-    IEnumerator Stall()
-    {
-        Debug.Log("Player took damage");
-        yield return new WaitForSeconds(player.MovementData.hurtTime);
 
     }
 
     public override void OnExit()
     {
+        exitingState = false;
         player.Animator.SetBool(heavyDamageAnim, false);
         player.Animator.SetBool(lightDamageAnim, false);
     }
