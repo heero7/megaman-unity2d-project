@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: be27dfe9904ec624dbabdf57d46e43a1
+guid: 273880a45bb1d61499fec07500415f56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5000377677241172512
-    second: megaman_x4_dash_0
+      213: 1554865474488661122
+    second: _mx4-x-dash_0
   - first:
-      213: -3991803153361642996
-    second: megaman_x4_dash_1
+      213: 686875556745186826
+    second: _mx4-x-dash_1
   - first:
-      213: 5788555125138614746
-    second: megaman_x4_dash_2
+      213: -3941288940260396294
+    second: _mx4-x-dash_2
   - first:
-      213: 1818046723667747089
-    second: megaman_x4_dash_3
+      213: 6265588132492263279
+    second: _mx4-x-dash_3
+  - first:
+      213: -2467749390540080115
+    second: _mx4-x-dash_4
+  - first:
+      213: 4284341903100694415
+    second: _mx4-x-dash_5
+  - first:
+      213: -3605890115000843850
+    second: _mx4-x-dash_6
+  - first:
+      213: 4821220038862365992
+    second: _mx4-x-dash_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -89,7 +101,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -101,85 +113,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: megaman_x4_dash_0
+      name: _mx4-x-dash_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.578125}
+        x: 7
+        y: 12
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 022c0ca1109e46540800000000000000
-      internalID: 5000377677241172512
+      spriteID: 2847a6839edf39510800000000000000
+      internalID: 1554865474488661122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: megaman_x4_dash_1
+      name: _mx4-x-dash_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.578125}
+        x: 57
+        y: 10
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0a58967e244a98c0800000000000000
-      internalID: -3991803153361642996
+      spriteID: a0e02bcfda5488900800000000000000
+      internalID: 686875556745186826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: megaman_x4_dash_2
+      name: _mx4-x-dash_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.578125}
+        x: 112
+        y: 9
+        width: 39
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad967ac9734155050800000000000000
-      internalID: 5788555125138614746
+      spriteID: af27a96379abd49c0800000000000000
+      internalID: -3941288940260396294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: megaman_x4_dash_3
+      name: _mx4-x-dash_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.578125}
+        x: 173
+        y: 7
+        width: 44
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 111674ddcdffa3910800000000000000
-      internalID: 1818046723667747089
+      spriteID: f6fba12c537d3f650800000000000000
+      internalID: 6265588132492263279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _mx4-x-dash_5
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 5
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f43aee24a057b30800000000000000
+      internalID: 4284341903100694415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _mx4-x-dash_4
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 6
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cfb26010bc0cdd0800000000000000
+      internalID: -2467749390540080115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _mx4-x-dash_6
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 7
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b148449b0e45fdc0800000000000000
+      internalID: -3605890115000843850
       vertices: []
       indices: 
       edges: []

@@ -13,6 +13,7 @@ public class PlayerRisingState : PlayerJumpState
         base.OnExecute();
         if (DashJumping)
         {
+            AfterImagePool.Instance.RetrieveAfterImageFromPool();
             player.SetVelocityX(player.CurrentVelocity.x * player.MovementData.DashJumpAerialSpeed);
         }
 

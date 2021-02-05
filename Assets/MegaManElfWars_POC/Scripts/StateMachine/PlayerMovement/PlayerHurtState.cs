@@ -39,7 +39,14 @@ public class PlayerHurtState : PlayerMovementState
 
         if (once) 
         {
-            player.Rigidbody2D.AddForce(new Vector2(-player.FacingDirection * 3, 0), ForceMode2D.Impulse);
+            if (!aLotOfDamageTaken)
+            {
+                player.Rigidbody2D.AddForce(new Vector2(-player.FacingDirection * 3, 0), ForceMode2D.Impulse);
+            }
+            else 
+            {
+                // Loop in a curve.
+            }
             once = false;
         }
 

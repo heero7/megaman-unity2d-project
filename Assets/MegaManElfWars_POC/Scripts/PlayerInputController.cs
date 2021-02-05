@@ -13,6 +13,15 @@ public class PlayerInputController : MonoBehaviour
     public bool AttackHeld { get; private set; }
     public bool SpecialAttackPressed { get; private set; }
 
+    [SerializeField]
+    private float inputHoldTime = 0.2f; // How long the input is true, before its false.
+    private float whenJumpInputWasPressed; // This is the time the jump input was pressed
+
+    private void Update()
+    {
+        CheckJumpInputHoldTime();
+    }
+
     public void OnMove(InputAction.CallbackContext ctx)
     {
         rawMovementInput = ctx.ReadValue<Vector2>();
@@ -25,10 +34,20 @@ public class PlayerInputController : MonoBehaviour
         if (ctx.started)
         {
             JumpPressed = true;
+            whenJumpInputWasPressed = Time.time; // Record when the jump input was pressed
         }
     }
 
     public void UseJumpInput() => JumpPressed = false;
+
+    // This method will stop from holding the jump button down
+    // to spam jumping.
+    private void CheckJumpInputHoldTime()
+    {
+        // This means that after this time has passed set the flag to false.
+        // The player must use the Jump button OR else the game will just reset the flag.
+        if (Time.time >= whenJumpInputWasPressed + inputHoldTime) JumpPressed = false;
+    }
 
     public void OnDash(InputAction.CallbackContext ctx)
     {

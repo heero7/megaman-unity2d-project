@@ -16,8 +16,14 @@ public class PlayerFallingState : PlayerJumpState
         base.OnExecute();
         isTouchingWallAndDirectionHeld = player.IsTouchingWall(horizontalInput);
 
+        if (movementStateMachine.Previous.Equals("Dash"))
+        {
+            AfterImagePool.Instance.RetrieveAfterImageFromPool();
+        }
+
         if (player.Rising.DashJumping)
         {
+            AfterImagePool.Instance.RetrieveAfterImageFromPool();
             player.SetVelocityX(player.CurrentVelocity.x * player.MovementData.DashJumpAerialSpeed);
         }
 

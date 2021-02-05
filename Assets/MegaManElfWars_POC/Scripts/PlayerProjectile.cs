@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour, IDamageDealer
 {
     public float speed;
     public float damage;
     private int direction;
     private bool wallSliding;
     private PlayerController p;
-    [SerializeField] Rigidbody2D rb;
+    private Rigidbody2D rb;
     [SerializeField] GameObject fx;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake() 
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -41,19 +46,34 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {   
-        if (other.CompareTag("Ground"))
+        if (other.CompareTag("Ground") || other.CompareTag("Enemy"))
         {
-            var flip = 1.0f;
+            
+            var opposition = other.GetComponent<IDamageReceiver>();
+            if (opposition != null)
+            {
+                opposition.ReceiveDamage(damage);
+            }
+            
             if (direction == -1)
             {
-                Instantiate(fx, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+                // on hit effect
+                var o = Instantiate(fx, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+                GameManager.Instance.CleanUpFX(o);
             }
             else 
             {
-                Instantiate(fx, transform.position, transform.rotation);
+                // on hit effects
+                var o = Instantiate(fx, transform.position, transform.rotation);
+                GameManager.Instance.CleanUpFX(o);
             }
             
             Destroy(gameObject);
         }
+    }
+
+    public float GiveDamage()
+    {
+        return damage;
     }
 }

@@ -35,6 +35,7 @@ public class PlayerGroundState : PlayerMovementState
         else if (player.InputController.DashPressed)
         {
             player.InputController.UseDashInput();
+            player._lastImageXpos = player.transform.position.x;
             movementStateMachine.ChangeState(player.Dash);
             return;
         }

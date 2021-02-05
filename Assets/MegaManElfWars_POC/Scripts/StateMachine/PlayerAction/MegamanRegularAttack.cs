@@ -146,8 +146,8 @@ public override void OnEnter()
             player.Animator.SetFloat(RegularAttackAnimName, 1);
             charge1.SetBool(chargeLevel1AnimName, false);
             charge2.SetBool(chargeLevel2AnimName, false);
-            player.StartCoroutine(Wait(2f));
-            Debug.Log("Did this still run?");
+            //player.StartCoroutine(Wait(2f));
+            //Debug.Log("Did this still run?");
             if (chargeAmount < amountNeededLevel1)
             {
                 // Do something...?
@@ -166,13 +166,15 @@ public override void OnEnter()
                 player.muzzleAnimator.Play(muzzle3Anim);
             }
             chargeAmount = 0f;
-            player.StartCoroutine(OnStateChangeWait(2f));
-            //actionStateMachine.ChangeState(player.NoAction);
+            //player.StartCoroutine(OnStateChangeWait(2f));
+            actionStateMachine.ChangeState(player.NoAction);
         }
     }
 
     public override void OnExit()
     {
+        // Here you should try to setFloat on the animation.
+        
         base.OnExit();
     }
     #endregion

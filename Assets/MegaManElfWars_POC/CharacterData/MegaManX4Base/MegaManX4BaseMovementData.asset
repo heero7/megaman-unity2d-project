@@ -24,7 +24,7 @@ MonoBehaviour:
   wallClimbNoControlTimer: 0.1
   ladderClimbSpeed: 2
   dashSpeed: 6
-  DashDuration: 0.5
+  DashDuration: 0.77
   DashCoolDown: 1
   DashJumpAerialSpeed: 1.79
   hurtTime: 0.4

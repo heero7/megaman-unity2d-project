@@ -6,10 +6,14 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PlayerInputController))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageReceiver
 {
     [SerializeField] private CharacterMovementData movementData;
+    [SerializeField] public float currentHealth;
     [SerializeField] public AttackData attackData;
+    // After image shenanigans
+    [SerializeField] public float distanceBetweenAfterImages;
+    public float _lastImageXpos { get; set; }
     public CharacterMovementData MovementData { get => movementData; }
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask ladderLayer;
@@ -92,6 +96,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         FacingDirection = 1;
+        currentHealth = Mathf.Min(movementData.health, currentHealth);
         SetupRaySpacingValues();
         InitializeStateMachine();
         InitActionStateMachine();
@@ -248,7 +253,19 @@ public class PlayerController : MonoBehaviour
         upperLadderCollider.enabled = state;
         lowerLadderCollider.enabled = state;
     }
+
+    public void ShowAfterImage()
+    {
+        if (Mathf.Abs(transform.position.x - _lastImageXpos) > distanceBetweenAfterImages)
+        {
+            AfterImagePool.Instance.RetrieveAfterImageFromPool();
+            _lastImageXpos = transform.position.x;
+        }
+    }
+
     public void SetGravityScale(float value) => Rigidbody2D.gravityScale = value;
+
+    public void ReceiveDamage(float damage) => currentHealth -= damage;
 
     private void Flip()
     {
@@ -287,6 +304,30 @@ public class PlayerController : MonoBehaviour
         verticalRaySpacing = width / (verticalRayCount - 1);
         horizontalRayCount = Mathf.RoundToInt(height / distanceBetweenRays);
         horizontalRaySpacing = height / (horizontalRayCount - 1);
+    }
+
+
+    private bool wasHurtLastFrame = false;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyProjectile") || other.CompareTag("Enemy"))
+        {
+            if (!wasHurtLastFrame)
+            {
+                var damgeDealer = other.GetComponent<IDamageDealer>();
+                ReceiveDamage(damgeDealer.GiveDamage());
+                wasHurtLastFrame = true;
+                StartCoroutine(WaitForFrames());
+            }
+            MovementStateMachine.ChangeState(Hurt);
+        }
+    }
+
+    IEnumerator WaitForFrames()
+    {
+        // Or we can check what state we're in.
+        yield return new WaitForSeconds(.5f);
+        wasHurtLastFrame = false;
     }
 
     private void DebugDraw()

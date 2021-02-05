@@ -1,0 +1,1066 @@
+fileFormatVersion: 2
+guid: f02d4e137b306ed499280a0417aebe63
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -721908345833824317
+    second: _m8metool_0
+  - first:
+      213: -4471504143582861271
+    second: _m8metool_1
+  - first:
+      213: -7647509775428195235
+    second: _m8metool_2
+  - first:
+      213: 8997466723199812263
+    second: _m8metool_3
+  - first:
+      213: 7921638313199262014
+    second: _m8metool_4
+  - first:
+      213: -5385859626834044702
+    second: _m8metool_5
+  - first:
+      213: -1983350961664132479
+    second: _m8metool_6
+  - first:
+      213: -9150169270579072924
+    second: _m8metool_7
+  - first:
+      213: -2702472681632068770
+    second: _m8metool_8
+  - first:
+      213: 7148856149155332580
+    second: _m8metool_9
+  - first:
+      213: 3939987496188728852
+    second: _m8metool_10
+  - first:
+      213: -1393507012775146402
+    second: _m8metool_11
+  - first:
+      213: -230739564736340574
+    second: _m8metool_12
+  - first:
+      213: -2923220897259880867
+    second: _m8metool_13
+  - first:
+      213: 3907505919086681543
+    second: _m8metool_14
+  - first:
+      213: -6088064896327183441
+    second: _m8metool_15
+  - first:
+      213: -5944238152521245762
+    second: _m8metool_16
+  - first:
+      213: 4595020109809871559
+    second: _m8metool_17
+  - first:
+      213: -5316524049877971737
+    second: _m8metool_18
+  - first:
+      213: -202474511026182969
+    second: _m8metool_19
+  - first:
+      213: 5647443627561480127
+    second: _m8metool_20
+  - first:
+      213: -3521513040384290637
+    second: _m8metool_21
+  - first:
+      213: 6930061116812328457
+    second: _m8metool_22
+  - first:
+      213: -5048355677322854999
+    second: _m8metool_23
+  - first:
+      213: 6554907679591451464
+    second: _m8metool_24
+  - first:
+      213: -1858713958175942585
+    second: _m8metool_25
+  - first:
+      213: -510595514075437403
+    second: _m8metool_26
+  - first:
+      213: 6309401515082089302
+    second: _m8metool_27
+  - first:
+      213: -4675569418274994633
+    second: _m8metool_28
+  - first:
+      213: 9110070926551021859
+    second: _m8metool_29
+  - first:
+      213: -1576841907937742054
+    second: _m8metool_30
+  - first:
+      213: 9082002573017360644
+    second: _m8metool_31
+  - first:
+      213: 3022744526748254075
+    second: _m8metool_32
+  - first:
+      213: 6493196370004127479
+    second: _m8metool_33
+  - first:
+      213: -2705530110226926876
+    second: _m8metool_34
+  - first:
+      213: 8557466704879805478
+    second: _m8metool_35
+  - first:
+      213: -7473963518829754203
+    second: _m8metool_36
+  - first:
+      213: -73785098543709021
+    second: _m8metool_37
+  - first:
+      213: -8031882231073906684
+    second: _m8metool_38
+  - first:
+      213: -1877670700732745719
+    second: _m8metool_39
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _m8metool_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 134
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf5f2e2f244bf5f0800000000000000
+      internalID: -721908345833824317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 132
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9286e062ca602f1c0800000000000000
+      internalID: -4471504143582861271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 132
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c6643a0669ed590800000000000000
+      internalID: -7647509775428195235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 132
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a209ba605c6ddc70800000000000000
+      internalID: 8997466723199812263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_4
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 135
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39dd5143105fed60800000000000000
+      internalID: 7921638313199262014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_5
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 134
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8507474359145b0800000000000000
+      internalID: -5385859626834044702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_6
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 131
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a74110fc8b974e0800000000000000
+      internalID: -1983350961664132479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_7
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 131
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46070703781140180800000000000000
+      internalID: -9150169270579072924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_8
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 131
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b8f141a63ee7ad0800000000000000
+      internalID: -2702472681632068770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_9
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 132
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e145c89ac6d53360800000000000000
+      internalID: 7148856149155332580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_10
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 132
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4165fc9b0c5ada630800000000000000
+      internalID: 3939987496188728852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_11
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 132
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c858741c449ace0800000000000000
+      internalID: -1393507012775146402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_12
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 132
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad1340a69f3cccf0800000000000000
+      internalID: -230739564736340574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_13
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 90
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e73d2f412ae67d0800000000000000
+      internalID: -2923220897259880867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_14
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 90
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cdd5e83eef3a3630800000000000000
+      internalID: 3907505919086681543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_15
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 90
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa394e49b39d28ba0800000000000000
+      internalID: -6088064896327183441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_16
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 90
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb95aae4e2d18da0800000000000000
+      internalID: -5944238152521245762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 90
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca6ef4c17ac4cf30800000000000000
+      internalID: 4595020109809871559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_18
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 91
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ecc3377b89e736b0800000000000000
+      internalID: -5316524049877971737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_19
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 89
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4a636418aa03df0800000000000000
+      internalID: -202474511026182969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_20
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 92
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbf68ddce00cf5e40800000000000000
+      internalID: 5647443627561480127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_21
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 90
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b01dfb2c82112fc0800000000000000
+      internalID: -3521513040384290637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_22
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 92
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90e78536ed58c2060800000000000000
+      internalID: 6930061116812328457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_23
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 92
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad38514243a0f9b0800000000000000
+      internalID: -5048355677322854999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_24
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 48
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b47812ec5b7fa50800000000000000
+      internalID: 6554907679591451464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_25
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 48
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748dcdfb0858436e0800000000000000
+      internalID: -1858713958175942585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_26
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 48
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a620afc5100ae8f0800000000000000
+      internalID: -510595514075437403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 46
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65387c3df3f7f8750800000000000000
+      internalID: 6309401515082089302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_28
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 45
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7360a05e26a0d1fb0800000000000000
+      internalID: -4675569418274994633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_29
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 46
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 329ffaf8d397d6e70800000000000000
+      internalID: 9110070926551021859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_30
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 46
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13fb62a3aeed1ae0800000000000000
+      internalID: -1576841907937742054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_31
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 13
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40922edb831c90e70800000000000000
+      internalID: 9082002573017360644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_32
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 13
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ff593c122f2f920800000000000000
+      internalID: 3022744526748254075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_33
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 13
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fea3f232b77c1a50800000000000000
+      internalID: 6493196370004127479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_34
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 15
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2fcc203b6047ad0800000000000000
+      internalID: -2705530110226926876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_35
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 14
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624e791f0aa32c670800000000000000
+      internalID: 8557466704879805478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_36
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 14
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a88ce347c5274890800000000000000
+      internalID: -7473963518829754203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_37
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 12
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4c59308dcd9fef0800000000000000
+      internalID: -73785098543709021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_38
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 5
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40061136aa5098090800000000000000
+      internalID: -8031882231073906684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _m8metool_39
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 9
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9087aad227c21f5e0800000000000000
+      internalID: -1877670700732745719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

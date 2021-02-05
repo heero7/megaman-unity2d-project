@@ -81,14 +81,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7387287426687272850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ce0e199a57fd64899da9811b6874c1, type: 3}
+  m_Script: {fileID: 11500000, guid: f87e3154c5504704fbc6fb57aecaf44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 18
+  speed: 15
   damage: 2
-  rb: {fileID: 4789340165185251444}
   fx: {fileID: 6775584270160370065, guid: e68dfa035b72c0d4ea254765c438491a, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!212 &746449183496196516
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,7 +125,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -609864753
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -4157726829310657163, guid: 73486406465849a40a30fdf853281b90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

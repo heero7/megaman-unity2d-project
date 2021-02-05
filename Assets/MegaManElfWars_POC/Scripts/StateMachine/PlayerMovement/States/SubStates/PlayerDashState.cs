@@ -13,6 +13,7 @@ public class PlayerDashState : PlayerMovementState
     {
         base.OnExecute();
         player.SetVelocityX(player.MovementData.dashSpeed * player.FacingDirection);
+        AfterImagePool.Instance.RetrieveAfterImageFromPool();
 
         var isPastDashTime = Time.time > startTime + player.MovementData.dashDuration;
         if (isPastDashTime || horizontalInput == player.FacingDirection * -1 || !player.InputController.DashHeld || player.IsTouchingWall(player.FacingDirection))
@@ -28,6 +29,14 @@ public class PlayerDashState : PlayerMovementState
             return;
         }
 
+        // Check to see if we're far enough to place an after image.
+        // var imageDist = Mathf.Abs(player.transform.position.x - player._lastImageXpos);
+        // if (imageDist > player.distanceBetweenAfterImages)
+        // {
+        //     AfterImagePool.Instance.RetrieveAfterImageFromPool();
+        //     player._lastImageXpos = player.transform.position.x;
+        // }
+
         if (player.InputController.JumpPressed && player.IsGrounded())
         {
             player.InputController.UseJumpInput();
@@ -42,5 +51,10 @@ public class PlayerDashState : PlayerMovementState
         // Lock on the Y axis
         player.SetVelocityY(0);
         startTime = Time.time;
+    }
+
+    public override string ToString()
+    {
+        return "Dash";
     }
 }

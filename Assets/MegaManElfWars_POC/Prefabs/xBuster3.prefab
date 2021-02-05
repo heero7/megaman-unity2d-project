@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2576826488901328457}
   - component: {fileID: 3334092466571380625}
   - component: {fileID: 5255692671411442273}
-  - component: {fileID: 1027663420516927417}
   - component: {fileID: 2273993356123904034}
   - component: {fileID: 6698320910206324104}
+  - component: {fileID: 8363139937361258986}
   m_Layer: 0
   m_Name: xBuster3
   m_TagString: Untagged
@@ -72,23 +72,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1027663420516927417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9157499193452207976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ce0e199a57fd64899da9811b6874c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 25
-  damage: 3
-  rb: {fileID: 5255692671411442273}
-  fx: {fileID: 7610698705320906085, guid: f5e0b7d13187a7f4080b0b08615bd8f1, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!212 &2273993356123904034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -609864753
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 8819970719128020226, guid: 73486406465849a40a30fdf853281b90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -159,3 +142,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8363139937361258986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157499193452207976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87e3154c5504704fbc6fb57aecaf44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 22
+  damage: 3
+  fx: {fileID: 7610698705320906085, guid: f5e0b7d13187a7f4080b0b08615bd8f1, type: 3}

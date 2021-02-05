@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class DebugUtility : MonoBehaviour
 {
-    [SerializeField] Text movementState, actionState, facingDirection;
+    [SerializeField] Text movementState, actionState, facingDirection, currentHealth;
     [SerializeField] private PlayerController player;
     private Gamepad gamepad;
     private Keyboard keyboard;
@@ -21,6 +21,7 @@ public class DebugUtility : MonoBehaviour
         movementState.text = player.MovementStateMachine.CurrentState.ToString();
         actionState.text = player.ActionStateMachine.CurrentState.ToString();
         facingDirection.text = player.FacingDirection.ToString();
+        currentHealth.text = $"{player.currentHealth}/{player.MovementData.health}";
         if (keyboard == null && gamepad == null) Debug.LogWarning("No recognized input is connected.");
         if ((keyboard != null && keyboard.rKey.isPressed) || (gamepad != null && gamepad.selectButton.isPressed))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
