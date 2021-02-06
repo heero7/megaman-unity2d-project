@@ -771,7 +771,6 @@ MonoBehaviour:
   xBuster: {fileID: 8831572237701373298}
   muzzleAnimator: {fileID: 2947942439449663122}
   deathFX: {fileID: 6879173186525071936, guid: 7b5793c15cfa0be43a3d0fd0ad2fa55b, type: 3}
-  _ladders: {fileID: 0}
 --- !u!114 &8831572239102111883
 MonoBehaviour:
   m_ObjectHideFlags: 0
