@@ -17,6 +17,8 @@ TagManager:
   - EnemyProjectile
   - Checkpoints
   - First-CheckPoint
+  - PlayerHealthSlider
+  - PlayerLivesText
   layers:
   - Default
   - TransparentFX

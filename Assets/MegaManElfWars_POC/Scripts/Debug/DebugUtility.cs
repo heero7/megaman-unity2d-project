@@ -30,17 +30,5 @@ public class DebugUtility : MonoBehaviour
             if (Time.timeScale == 0) Time.timeScale = 1;
             else Time.timeScale = 0;
         }
-
-        if (keyboard.yKey.wasPressedThisFrame)
-        {
-            player.Hurt.aLotOfDamageTaken = false;
-            player.MovementStateMachine.ChangeState(player.Hurt);
-        }
-
-        if (keyboard.tKey.wasPressedThisFrame)
-        {
-            player.Hurt.aLotOfDamageTaken = true;
-            player.MovementStateMachine.ChangeState(player.Hurt);
-        }
     }
 }

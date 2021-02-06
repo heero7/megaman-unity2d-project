@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     [SerializeField] private CharacterMovementData movementData;
     [SerializeField] public float currentHealth;
     [SerializeField] public AttackData attackData;
+    [SerializeField] public int lives = 2;
     // After image shenanigans
     [SerializeField] public float distanceBetweenAfterImages;
     public float _lastImageXpos { get; set; }
@@ -99,6 +100,8 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     {
         FacingDirection = 1;
         currentHealth = Mathf.Min(movementData.health, currentHealth);
+        PlayerHudManager.Instance.SetMaxHealth(MovementData.health);
+        PlayerHudManager.Instance.SetHealth(currentHealth);
         SetupRaySpacingValues();
         InitializeStateMachine();
         InitActionStateMachine();
@@ -180,7 +183,6 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
             Debug.DrawRay(rayOrigin, Vector2.right * horizontalInput * wallCheckDistance, Color.green);
             if (hit.collider != null)
             {
-                Debug.Log("We're touching a wall right now.");
                 return true;
             }
         }
@@ -232,10 +234,10 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     {
         var cellPos = WorldToCell(transform.position, Ladders);
         var worldLadderPos = Ladders.GetCellCenterWorld(cellPos);
-        var additionalBoost = Vector3.up / 2;
+        var additionalBoost = Vector3.up;
         if (directionOfLadderRequest == -1)
         {
-            additionalBoost *= -1;
+            additionalBoost *= -1 * 2;
         }
         Rigidbody2D.MovePosition(IsGrounded() ? worldLadderPos + additionalBoost : worldLadderPos);
     }
@@ -270,8 +272,10 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     public void ReceiveDamage(float damage)
     {
         currentHealth -= damage;
+        PlayerHudManager.Instance.SetHealth(damage);
         if (currentHealth <= 0)
         {
+            PlayerHudManager.Instance.DecrementLives(1);
             Destroy(gameObject);
             
             var cleanUpFX = Instantiate(deathFX, transform.position, transform.rotation);
@@ -327,7 +331,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     private void OnTriggerEnter2D(Collider2D other)
     {
         var damgeDealer = other.GetComponent<IDamageDealer>();
-        if (damgeDealer == null) return;
+        if (damgeDealer == null || other.CompareTag("Player")) return; // Don't hit ourselves.
 
         if (!wasHurtLastFrame)
         {

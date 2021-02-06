@@ -1,0 +1,570 @@
+fileFormatVersion: 2
+guid: 2016cd4b4f0b73243b99ac2ccbfdb217
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7711789860229523345
+    second: mmx4_mugshots_0
+  - first:
+      213: -6074954161846655549
+    second: mmx4_mugshots_1
+  - first:
+      213: 9183964857632995406
+    second: mmx4_mugshots_2
+  - first:
+      213: 665302732839842301
+    second: mmx4_mugshots_3
+  - first:
+      213: -4210663843921483370
+    second: mmx4_mugshots_4
+  - first:
+      213: 82799218218926657
+    second: mmx4_mugshots_5
+  - first:
+      213: 6770049212043140346
+    second: mmx4_mugshots_6
+  - first:
+      213: 8159281409271555435
+    second: mmx4_mugshots_7
+  - first:
+      213: -5704452394674896900
+    second: mmx4_mugshots_8
+  - first:
+      213: 5128047486528085725
+    second: mmx4_mugshots_9
+  - first:
+      213: 4045824046899265866
+    second: mmx4_mugshots_10
+  - first:
+      213: 6116835777862062313
+    second: mmx4_mugshots_11
+  - first:
+      213: 833432251850144843
+    second: mmx4_mugshots_12
+  - first:
+      213: -2177139886655439492
+    second: mmx4_mugshots_13
+  - first:
+      213: 2849485563858150306
+    second: mmx4_mugshots_14
+  - first:
+      213: 349733754545495133
+    second: mmx4_mugshots_15
+  - first:
+      213: 3883076203985646037
+    second: mmx4_mugshots_16
+  - first:
+      213: 7201352075448964810
+    second: mmx4_mugshots_17
+  - first:
+      213: 8029559078640410118
+    second: mmx4_mugshots_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mmx4_mugshots_0
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 300
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197a071e408c50b60800000000000000
+      internalID: 7711789860229523345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 198
+        width: 84
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 36}
+        - {x: -42, y: 5}
+        - {x: -38, y: -27}
+        - {x: 1, y: -37}
+        - {x: 19, y: -37}
+        - {x: 41, y: -14}
+        - {x: 41, y: 19}
+        - {x: 32, y: 37}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c56954506d61bba0800000000000000
+      internalID: -6074954161846655549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 220
+        width: 110
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48b2e8116ff37f70800000000000000
+      internalID: 9183964857632995406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_3
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 178
+        width: 112
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1f3038f41ab3900800000000000000
+      internalID: 665302732839842301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 180
+        width: 96
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699aa720b87b095c0800000000000000
+      internalID: -4210663843921483370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_5
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 145
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1428e954379262100800000000000000
+      internalID: 82799218218926657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_6
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 159
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc9ebb93eb04fd50800000000000000
+      internalID: 6770049212043140346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_7
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 159
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65641646379b3170800000000000000
+      internalID: 8159281409271555435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 48
+        width: 112
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cffb64145c6b5d0b0800000000000000
+      internalID: -5704452394674896900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 112
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde57d9f40c7a2740800000000000000
+      internalID: 5128047486528085725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_10
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 50
+        width: 112
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a410a23f887a52830800000000000000
+      internalID: 4045824046899265866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_11
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 48
+        width: 112
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e05ed84bbd53e450800000000000000
+      internalID: 6116835777862062313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_12
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 48
+        width: 99
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cb1e3a732f09b00800000000000000
+      internalID: 833432251850144843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 29
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d719ddece39c1e0800000000000000
+      internalID: -2177139886655439492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_14
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 29
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a36e5ae5086b8720800000000000000
+      internalID: 2849485563858150306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_15
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cd5ad2ff08ad400800000000000000
+      internalID: 349733754545495133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_16
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 2
+        width: 80
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1365eeb3573e530800000000000000
+      internalID: 3883076203985646037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_17
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 15
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac658a7ee8750f360800000000000000
+      internalID: 7201352075448964810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mmx4_mugshots_18
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 13
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60edf598079be6f60800000000000000
+      internalID: 8029559078640410118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

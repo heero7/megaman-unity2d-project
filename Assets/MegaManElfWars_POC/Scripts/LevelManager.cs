@@ -36,6 +36,7 @@ public class LevelManager : Singleton<LevelManager>
     public void RespawnPlayer()
     {
         Debug.Log("Player is attempting respawn...");
+        // ... You could resource.Load this.
         Instantiate(_currentPlayer, currentCheckPoint.position, currentCheckPoint.rotation);
     }
 

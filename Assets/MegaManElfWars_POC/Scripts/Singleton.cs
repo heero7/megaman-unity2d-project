@@ -39,7 +39,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                     gm.AddComponent<GameManager>();
                 }
 
-                instance = gm.GetComponent<T>();
+                instance = gm.AddComponent<T>();
                 Debug.Log($"{typeof(T)} Singleton instance created");
             }
 
