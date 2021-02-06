@@ -32,7 +32,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 var gm = GameObject.FindGameObjectWithTag(GAME_MANAGER);
                 if (gm == null)
                 {
-                    CreateGameManager();
+                    gm = CreateGameManager();
                 }
                 else if (gm.GetComponent<GameManager>() == null)
                 {
@@ -50,12 +50,14 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     /// <summary>
     /// Create the Game Manager if not found
     /// </summary>
-    private static void CreateGameManager()
+    private static GameObject CreateGameManager()
     {
         var gameManager = new GameObject();
+        gameManager.name = "GameManager";
         gameManager.transform.position = new Vector2(0, 0);
         gameManager.tag = GAME_MANAGER;
         gameManager.AddComponent<DontDestroy>();
         gameManager.AddComponent<T>();
+        return gameManager;
     }
 }

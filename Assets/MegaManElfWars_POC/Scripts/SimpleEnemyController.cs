@@ -6,13 +6,20 @@ public class SimpleEnemyController : MonoBehaviour, IDamageDealer, IDamageReceiv
 {
     [SerializeField] private float damageOnContact = 1f;
     [SerializeField] private float maxHealth = 3f;
+    [SerializeField] private float flashTime = 0.5f;
     [SerializeField] private TextMesh healthDisplay;
     [SerializeField] private GameObject deathFX;
+    private Material defaultMaterial, flashMaterial;
+    private SpriteRenderer _spriteRenderer;
+
     public float CurrentHealth { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        flashMaterial = Resources.Load("HitFlash", typeof(Material)) as Material;
+        defaultMaterial = _spriteRenderer.material;
         CurrentHealth = maxHealth;
         healthDisplay.text = CurrentHealth.ToString();
     }
@@ -33,10 +40,18 @@ public class SimpleEnemyController : MonoBehaviour, IDamageDealer, IDamageReceiv
         var curHealth = CurrentHealth;
         curHealth -= damage;
         CurrentHealth =  Mathf.Clamp(curHealth, 0, maxHealth);
+        StartCoroutine(Flash());
         healthDisplay.text = CurrentHealth.ToString();
 
         // Do something... like maybe check for health.
         CheckHealthStatus();
+    }
+
+    private IEnumerator Flash()
+    {
+        _spriteRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(flashTime);
+        _spriteRenderer.material = defaultMaterial;
     }
 
     private void CheckHealthStatus()

@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     [SerializeField] public float attackWait = .02f;
     [SerializeField] public XBuster xBuster;
     [SerializeField] public Animator muzzleAnimator;
+    [SerializeField] GameObject deathFX;
 
     #region StateMachines
     // Movement
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
 
     private BoxCollider2D upperLadderCollider;
     private BoxCollider2D lowerLadderCollider;
-    [SerializeField] private Tilemap _ladders;
+    private Tilemap _ladders;
     public Tilemap Ladders { get => _ladders; }
     #endregion
 
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
         // TODO: Setup upper and lower colliders.
         MovementStateMachine = new StateMachine<PlayerMovementState>();
         ActionStateMachine = new StateMachine<PlayerActionState>();
+        _ladders = GameObject.FindGameObjectWithTag("Ladder").GetComponent<Tilemap>();
     }
 
     void Start()
@@ -265,7 +267,21 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
 
     public void SetGravityScale(float value) => Rigidbody2D.gravityScale = value;
 
-    public void ReceiveDamage(float damage) => currentHealth -= damage;
+    public void ReceiveDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            
+            var cleanUpFX = Instantiate(deathFX, transform.position, transform.rotation);
+            GameManager.Instance.CleanUpFX(cleanUpFX);
+
+            // Level Manager Respawn
+            LevelManager.Instance.RespawnPlayer();
+        }
+
+    }
 
     private void Flip()
     {
@@ -310,17 +326,23 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     private bool wasHurtLastFrame = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyProjectile") || other.CompareTag("Enemy"))
+        var damgeDealer = other.GetComponent<IDamageDealer>();
+        if (damgeDealer == null) return;
+
+        if (!wasHurtLastFrame)
         {
-            if (!wasHurtLastFrame)
+            var damage = damgeDealer.GiveDamage();
+            if (damage > 5)
             {
-                var damgeDealer = other.GetComponent<IDamageDealer>();
-                ReceiveDamage(damgeDealer.GiveDamage());
-                wasHurtLastFrame = true;
-                StartCoroutine(WaitForFrames());
+                Hurt.aLotOfDamageTaken = true;
             }
+            ReceiveDamage(damage);
+            wasHurtLastFrame = true;
+            StartCoroutine(WaitForFrames());
             MovementStateMachine.ChangeState(Hurt);
         }
+
+
     }
 
     IEnumerator WaitForFrames()

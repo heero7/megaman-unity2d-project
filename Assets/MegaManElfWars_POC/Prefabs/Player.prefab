@@ -390,7 +390,7 @@ MonoBehaviour:
   xBullets:
   - {fileID: 9182079888234858323, guid: a39245525606e924784cd63c6083aa9e, type: 3}
   - {fileID: 1980029038318289152, guid: 914537421ff2431428203a350cd1ba54, type: 3}
-  - {fileID: 1027663420516927417, guid: 8d0dac473f4b1b949b3fe0b4caab20ed, type: 3}
+  - {fileID: 8363139937361258986, guid: 8d0dac473f4b1b949b3fe0b4caab20ed, type: 3}
   specialWeapons: []
 --- !u!1 &8831572237995972418
 GameObject:
@@ -756,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementData: {fileID: 11400000, guid: 17752206e15562947999e40c0afe9396, type: 2}
+  currentHealth: 0
   attackData: {fileID: 11400000, guid: b58de4ab69772b4448509172044b5fc8, type: 2}
   distanceBetweenAfterImages: 0.2
   groundLayer:
@@ -769,6 +770,7 @@ MonoBehaviour:
   attackWait: 5
   xBuster: {fileID: 8831572237701373298}
   muzzleAnimator: {fileID: 2947942439449663122}
+  deathFX: {fileID: 6879173186525071936, guid: 7b5793c15cfa0be43a3d0fd0ad2fa55b, type: 3}
   _ladders: {fileID: 0}
 --- !u!114 &8831572239102111883
 MonoBehaviour:
