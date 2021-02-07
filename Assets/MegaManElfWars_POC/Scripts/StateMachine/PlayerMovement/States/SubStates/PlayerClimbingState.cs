@@ -41,7 +41,7 @@ public class PlayerClimbingState : PlayerMovementState
             player.SetVelocityY(Vector2.zero.y);
             movementStateMachine.ChangeState(player.Idle);
             if (endingPosition == FinishedClimbingEventPosition.Top) player.MoveToTopOfLadder();
-            player.TriggerLadderColliders(true);
+            player.TriggerLadderColliders(false);
             return;
         }
     }

@@ -15,25 +15,38 @@ public class AfterImageController : MonoBehaviour
     [SerializeField] private Color color;
     public void SetAlphaOnEnable(float a) => alphaOnEnable = a;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _target = GameObject.FindGameObjectWithTag("Player").transform; // Maybe find a way to make this generic for anything. Maybe get component in parent and look for Controller i.e. RaycastController.
+
+        var player = GameObject.FindGameObjectWithTag("Player"); // Maybe find a way to make this generic for anything. Maybe get component in parent and look for Controller i.e. RaycastController.
+        if (player == null)
+        {
+            Debug.LogWarning("Player is null, will wait until spawn");
+        }
+        else
+        {
+            SetupData(gameObject);
+        }        
+    }
+
+    private void SetupData(GameObject player)
+    {
+        _target = player.transform;
         _targetSpriteRenderer = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
 
-        alpha = alphaOnEnable;
-        _spriteRenderer.sprite = _targetSpriteRenderer.sprite; // Get the correct sprite on enable.
-        
         // Set the transforms
         // If the sprite renderer is on the child object, you can't use the parent.
         // Use the GameObject that has the sprite renderer to get the right position.
+        _spriteRenderer.sprite = _targetSpriteRenderer.sprite; // Get the correct sprite on enable.
         transform.position = _targetSpriteRenderer.transform.position;
         transform.rotation = _target.rotation;
 
         timeActivated = Time.time;
+        alpha = alphaOnEnable;
     }
 
-    private void Update() 
+    private void Update()
     {
         alpha -= alphaDecay * Time.deltaTime;
         //color = new Color(1f, 1f, 1f, alpha);

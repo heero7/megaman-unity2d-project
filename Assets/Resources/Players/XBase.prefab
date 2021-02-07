@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 8831572237995972417}
   - component: {fileID: 8831572237995972479}
   - component: {fileID: 8831572237995972416}
+  - component: {fileID: 2619318372246087614}
   m_Layer: 0
   m_Name: Mega Man (X4)
   m_TagString: Character
@@ -496,6 +497,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2619318372246087614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831572237995972418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bc80d4a97ffe14e911a8b3890ee6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8831572238386416489
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +684,7 @@ GameObject:
   - component: {fileID: 8831572239102111884}
   - component: {fileID: 7766539604412981630}
   m_Layer: 0
-  m_Name: Player
+  m_Name: XBase
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,8 +769,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementData: {fileID: 11400000, guid: 17752206e15562947999e40c0afe9396, type: 2}
-  currentHealth: 0
+  currentHealth: 10
   attackData: {fileID: 11400000, guid: b58de4ab69772b4448509172044b5fc8, type: 2}
+  lives: 2
   distanceBetweenAfterImages: 0.2
   groundLayer:
     serializedVersion: 2
@@ -771,6 +785,7 @@ MonoBehaviour:
   xBuster: {fileID: 8831572237701373298}
   muzzleAnimator: {fileID: 2947942439449663122}
   deathFX: {fileID: 6879173186525071936, guid: 7b5793c15cfa0be43a3d0fd0ad2fa55b, type: 3}
+  _systemCanMove: 0
 --- !u!114 &8831572239102111883
 MonoBehaviour:
   m_ObjectHideFlags: 0

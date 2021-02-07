@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     public PlayerClimbingState ClimbingLadder { get; private set; }
     public PlayerWallClimbState WallClimb { get; private set; }
     public PlayerHurtState Hurt { get; private set; }
+    public PlayerIntroState Enter { get; private set; }
     // Action
     public StateMachine<PlayerActionState> ActionStateMachine { get; private set; } // TODO: a lot of power with this accesibility.
     public NoActionState NoAction { get; private set; }
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     private float verticalRaySpacing;
     private const float distanceBetweenRays = .15f;
     #endregion
+
+    public bool _systemCanMove;
 
     // TODO: Is there a way to calculate the Gravity from the level instead of from the player?
     public float Gravity { get; private set; }
@@ -283,6 +286,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
             var deathParticleSystem = fx.GetComponent<ParticleSystem>();
             // Play death particle and necessary animations.
             // Then respawn player.
+            _systemCanMove = false;
             GameManager.Instance.DestroyNonLoopParticleSystem(deathParticleSystem, LevelManager.Instance.RespawnNoDestroy);
         }
 
@@ -308,6 +312,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
         ClimbingLadder = new PlayerClimbingState(this, MovementStateMachine, "ClimbLadder");
         WallClimb = new PlayerWallClimbState(this, MovementStateMachine, "WallClimb");
         Hurt = new PlayerHurtState(this, MovementStateMachine, "Hurt");
+        Enter = new PlayerIntroState(this, MovementStateMachine, "StageEnter");
         MovementStateMachine.Init(Idle);
     }
 
@@ -335,6 +340,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     private void OnTriggerEnter2D(Collider2D other)
     {
         var damgeDealer = other.GetComponent<IDamageDealer>();
+        // Just a check just in case
         if (damgeDealer == null || other.CompareTag("Player")) return; // Don't hit ourselves.
 
         if (!wasHurtLastFrame)
