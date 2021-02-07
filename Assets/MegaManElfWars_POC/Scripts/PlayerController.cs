@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
 
     public Rigidbody2D Rigidbody2D { get; private set; }
     public PlayerInputController InputController { get; private set; }
-    private SpriteRenderer sRenderer;
+    private SpriteRenderer _spriteRenderer;
     private BoxCollider2D bodyCollider;
 
     private BoxCollider2D upperLadderCollider;
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Rigidbody2D.gravityScale = 0; // We will handle gravity with scripting.
         bodyCollider = GetComponent<BoxCollider2D>();
-        sRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         Animator = GetComponentInChildren<Animator>();
         upperLadderCollider = GameObject.FindGameObjectWithTag("upperLadder").GetComponent<BoxCollider2D>();
         lowerLadderCollider = GameObject.FindGameObjectWithTag("lowerLadder").GetComponent<BoxCollider2D>();
@@ -276,16 +276,20 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
         if (currentHealth <= 0)
         {
             PlayerHudManager.Instance.DecrementLives(1);
-            Destroy(gameObject);
-            
-            var cleanUpFX = Instantiate(deathFX, transform.position, transform.rotation);
-            GameManager.Instance.CleanUpFX(cleanUpFX);
+            TurnOffSpriteRenderer();
+            // Destroy(gameObject);
 
-            // Level Manager Respawn
-            LevelManager.Instance.RespawnPlayer();
+            var fx = Instantiate(deathFX, transform.position, transform.rotation);
+            var deathParticleSystem = fx.GetComponent<ParticleSystem>();
+            // Play death particle and necessary animations.
+            // Then respawn player.
+            GameManager.Instance.DestroyNonLoopParticleSystem(deathParticleSystem, LevelManager.Instance.RespawnNoDestroy);
         }
 
     }
+
+    public void TurnOnSpriteRenderer() => _spriteRenderer.enabled = true;
+    public void TurnOffSpriteRenderer() => _spriteRenderer.enabled = false;
 
     private void Flip()
     {
