@@ -1,12 +1,12 @@
 using System;
 
 [Serializable]
-public class FloatReference
+public class VariableReference<T> where T : Variable<T>
 {
     public bool UseConstant = false;
-    public float ConstantValue;
-    public FloatVariable Variable;
-    public float Value
+    public T ConstantValue;
+    public T Variable;
+    public T Value
     {
         get => UseConstant ? ConstantValue : Variable.Value;
         set
@@ -20,11 +20,5 @@ public class FloatReference
                 Variable.Value = value;
             }
         }
-    }
-
-    // Allows the objects of this type to be used like floats or <T> in comparisons, setting, etc.
-    public static implicit operator float(FloatReference reference)
-    {
-        return reference.Value;
     }
 }
