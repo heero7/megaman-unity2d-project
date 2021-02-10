@@ -12,10 +12,11 @@ namespace RaycastPhysics
     [RequireComponent(typeof(BoxCollider2D))]
     public class RaycastController : MonoBehaviour
     {
+        private const float DistanceBetweenRays = 0.25f;
         [HideInInspector] protected const float SkinWidth = 0.015f;
-        [SerializeField] protected int horizontalRayCount = 4;
+        [HideInInspector] protected int horizontalRayCount;
         [HideInInspector] protected float horizontalRaySpacing;
-        [SerializeField] protected int verticalRayCount = 4;
+        [HideInInspector] protected int verticalRayCount;
         [HideInInspector] protected float verticalRaySpacing;
         internal RaycastOrigins raycastOrigins;
         protected BoxCollider2D _collider;
@@ -38,11 +39,14 @@ namespace RaycastPhysics
         protected void CalculateRaySpacing()
         {
             var bounds = GetColliderBounds();
-            horizontalRayCount = Mathf.Clamp(horizontalRayCount, 2, int.MaxValue);
-            verticalRayCount = Mathf.Clamp(verticalRayCount, 2, int.MaxValue);
+            var boundsWidth = bounds.size.x;
+            var boundsHeight = bounds.size.y;
 
-            horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
-            verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
+            horizontalRayCount = Mathf.RoundToInt(boundsHeight / DistanceBetweenRays);
+            verticalRayCount = Mathf.RoundToInt(boundsWidth / DistanceBetweenRays);
+
+            horizontalRaySpacing = boundsHeight / (horizontalRayCount - 1);
+            verticalRaySpacing = boundsWidth / (verticalRayCount - 1);
         }
 
         protected void UpdateRayCastOrigins()

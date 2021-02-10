@@ -2,28 +2,66 @@
 
 namespace RaycastPhysics
 {
-
-    public partial class Controller2D : RaycastController
+    /// <summary>
+    /// Controller2D class, place this on objects you want
+    /// to control.
+    /// NOTE: This expects a certain tag name for multi-way platforms, change them as needed. 
+    /// </summary>
+    public class Controller2D : RaycastController
     {
+        private const string MultiWayPlatform = "MultiWayPlatform";
         private const float MaxClimbAngle = 80f;
         private const float MaxDescendAngle = 75f;
         private CollisionInfo collisionInfo;
         internal CollisionInfo CollisionInfo { get => collisionInfo; }
+        private Vector2 playerInput;
 
-        public void Move(Vector2 velocity, bool standingOnPlatform = false)
+        protected override void Start()
         {
+            base.Start();
+            collisionInfo.FacingDirection = 1;
+        }
+
+        /// <summary>
+        /// Mutates the veocity so that the controller does not collide with other objects.
+        /// After the collision is handled, the gameobject is translated by the resulting
+        /// velocity.
+        /// </summary>
+        /// <param name="deltaMove">Requested speed.</param>
+        /// <param name="standingOnPlatform">Is the gameobject currently standing on a platform.</param>
+        public void Move(Vector2 deltaMove, bool standingOnPlatform)
+        {
+            Move(deltaMove, Vector2.zero, standingOnPlatform);
+        }
+
+        /// <summary>
+        /// Mutates the veocity so that the controller does not collide with other objects.
+        /// After the collision is handled, the gameobject is translated by the resulting
+        /// velocity.
+        /// </summary>
+        /// <param name="deltaMove">Requested speed.</param>
+        /// <param name="input">Requested input (for multiway platforms)</param>
+        /// <param name="standingOnPlatform">Is the gameobject currently standing on a platform.</param>
+        public void Move(Vector2 deltaMove, Vector2 input, bool standingOnPlatform = false)
+        {
+            playerInput = input;
             // Every frame we have to update the ray origins
             UpdateRayCastOrigins();
             // Reset the collisions
             collisionInfo.Reset();
-            collisionInfo.VelocityOld = velocity; // Store the velocity before it is  changes
-                                                  
-            if (velocity.y < 0) DescendSlope(ref velocity); // Descend on a slope
-            // Handle Collisions.
-            if (velocity.x != 0) HandleHorizontalCollisions(ref velocity);
-            if (velocity.y != 0) HandleVerticalCollisions(ref velocity);
+            collisionInfo.VelocityOld = deltaMove; // Store the velocity before it is  changes
 
-            transform.Translate(velocity);
+            if (deltaMove.x != 0)
+            {
+                collisionInfo.FacingDirection = (int)Mathf.Sign(deltaMove.x);
+            }
+
+            if (deltaMove.y < 0) DescendSlope(ref deltaMove); // Descend on a slope
+            // Handle Collisions.
+            HandleHorizontalCollisions(ref deltaMove);
+            if (deltaMove.y != 0) HandleVerticalCollisions(ref deltaMove);
+
+            transform.Translate(deltaMove);
 
             // If standing on a platform, allow for jumping.
             if (standingOnPlatform) collisionInfo.Below = true;
@@ -43,10 +81,21 @@ namespace RaycastPhysics
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionLayer);
 
                 // Visualize the rays.
-                Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.green);
+                Debug.DrawRay(rayOrigin, Vector2.up * directionY, Color.green);
 
                 if (hit)
                 {
+                    if (hit.collider.CompareTag(MultiWayPlatform)) // Ignore everything, if this is a MultiWay platform.
+                    {
+                        if (directionY == 1 || hit.distance == 0) continue; // The zero case prevents ontroller from making it even though it didn't clear the platform.
+                        if (collisionInfo.FallingThroughPlatform) continue;
+                        if (playerInput.y == -1) // The input handler requested to fall through the bottom of this platform.
+                        {
+                            collisionInfo.FallingThroughPlatform = true;
+                            Invoke("ResetFallingThroughPlatformFlag", 0.5f);
+                            continue;
+                        }
+                    }
                     // Raycast has hit the ground layer.
                     // 1. Set Y velocity equal to the amount the object must move from the current position, to the point where the ray intersects.
                     velocity.y = (hit.distance - SkinWidth) * directionY; // maintain direction by multiplying directionY.
@@ -83,8 +132,13 @@ namespace RaycastPhysics
 
         private void HandleHorizontalCollisions(ref Vector2 velocity)
         {
-            var directionX = Mathf.Sign(velocity.x); // Direction of the x velocity. (Sign only returns 1 OR -1)
+            var directionX = collisionInfo.FacingDirection; // Direction of the x velocity. (Sign only returns 1 OR -1)
             var rayLength = Mathf.Abs(velocity.x) + SkinWidth;
+
+            if (Mathf.Abs(velocity.x) < SkinWidth)
+            {
+                rayLength = 2 * SkinWidth; // Send a small ray to check if touching the wall.
+            }
 
             // Start from bottom left corner
             for (int i = 0; i < horizontalRayCount; i++)
@@ -94,7 +148,7 @@ namespace RaycastPhysics
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionLayer);
 
                 // Visualize the rays.
-                Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+                Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.red);
 
                 if (hit)
                 {
@@ -128,6 +182,12 @@ namespace RaycastPhysics
                     if (!collisionInfo.ClimbingSlope || slopeAngle > MaxClimbAngle)
                     {
                         // Raycast has hit the ground layer.
+                        /** 
+                            NOTE: Could solve double slope problem
+                            Found in comments from Episode 4.<!-- Sebastian Lague Tutorial -->
+                            velocity.x = Mathf.Min(Mathf.Abs(velocity.x), (hit.distance - skinWidth)) * directionX;
+                            rayLength = Mathf.Min(Mathf.Abs(velocity.x) + skinWidth, hit.distance);
+                        */
                         // 1. Set Y velocity equal to the amount the object must move from the current position, to the point where the ray intersects.
                         velocity.x = (hit.distance - SkinWidth) * directionX; // maintain direction by multiplying directionY.
                         rayLength = hit.distance; // If we have found something, change the raylength to the distance, so we dont' go through things.
@@ -196,5 +256,7 @@ namespace RaycastPhysics
                 }
             }
         }
+
+        private void ResetFallingThroughPlatformFlag() => collisionInfo.FallingThroughPlatform = false;
     }
 }

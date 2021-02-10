@@ -21,6 +21,7 @@ TagManager:
   - PlayerLivesText
   - MainVirtualCamera
   - MovingPlatform
+  - MultiWayPlatform
   layers:
   - Default
   - TransparentFX

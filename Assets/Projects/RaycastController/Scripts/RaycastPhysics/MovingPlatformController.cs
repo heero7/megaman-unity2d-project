@@ -6,20 +6,71 @@ namespace RaycastPhysics
 {
     public class MovingPlatformController : RaycastController
     {
-        [SerializeField] private Vector2 move;
         [SerializeField] private LayerMask passengerLayer; // Those who will be passengers on the moving platform.
+        [SerializeField] private bool isCyclic;
+        [SerializeField] private float platformSpeed; // TODO: This should be a FloatReference.
+        [Range(0, 2)] [SerializeField] private float easeAmount;
+        [SerializeField] private float waitTime; // TODO: This should be a FloatReference.
+        [SerializeField] private Vector2[] localWayPoints; // Vector2's relative to the platform.
+
+        private Vector2[] globalWayPoints; // The copy of localWayPoints, in world space.
+        private int fromWayPointIndex;
+        private float percentBetweenWayPoints; // Percent between 0 - 1.
+        private float nextMoveTime;
 
         private List<PassengerMovement> calculatedPassengerMovment;
         private Dictionary<Transform, Controller2D> passengerCache = new Dictionary<Transform, Controller2D>();
 
+        protected override void Start()
+        {
+            base.Start();
+            globalWayPoints = new Vector2[localWayPoints.Length]; // Initialize to the size.
+
+            // Initialize global way points.
+            for (int i = 0; i < localWayPoints.Length; i++)
+            {
+                globalWayPoints[i] = localWayPoints[i] + (Vector2)transform.position; // Add the position from the start of the game.
+            }
+        }
+
+        private Vector2 CalculatePlatformMovement()
+        {
+            if (Time.time < nextMoveTime)
+            {
+                return Vector2.zero; // Don't move yet.
+            }
+            fromWayPointIndex %= globalWayPoints.Length; // Resets to 0, if it reaches globalWayPoints.Length
+            var toWayPointIndex = (fromWayPointIndex + 1) % globalWayPoints.Length;
+            var distanceBetweenWayPoints = Vector2.Distance(globalWayPoints[fromWayPointIndex], globalWayPoints[toWayPointIndex]);
+            percentBetweenWayPoints += Time.deltaTime * platformSpeed / distanceBetweenWayPoints; // Further waypoints would cause a faster speed, divide by distance to get a constant rate.
+            percentBetweenWayPoints = Mathf.Clamp01(percentBetweenWayPoints); // Clamp between 0 & 1.
+            var easePercentBetweenWayPoints = Ease(percentBetweenWayPoints);
+            Vector2 nextPosition = Vector2.Lerp(globalWayPoints[fromWayPointIndex], globalWayPoints[toWayPointIndex], easePercentBetweenWayPoints);
+
+            if (percentBetweenWayPoints >= 1) // Platform has reached a waypoint.
+            {
+                percentBetweenWayPoints = 0; // Reset waypoints.
+                fromWayPointIndex++; // Next set of waypoints.
+                if (!isCyclic)
+                {
+                    if (fromWayPointIndex >= globalWayPoints.Length - 1)
+                    {
+                        fromWayPointIndex = 0;
+                        System.Array.Reverse(globalWayPoints);
+                    }
+                }
+                nextMoveTime = waitTime + Time.time;
+            }
+            return nextPosition - (Vector2)transform.position;
+        }
 
         private void Update()
         {
             UpdateRayCastOrigins();
 
-            var velocity = move * Time.deltaTime;
+            var velocity = CalculatePlatformMovement();
             CalculatePassengerMovement(velocity);
-            
+
             MovePassengers(true);
             transform.Translate(velocity);
             MovePassengers(false);
@@ -33,7 +84,7 @@ namespace RaycastPhysics
         /// <param name="beforeMovePlatform">Was this done before calculating the platform movement?</param>
         private void MovePassengers(bool beforeMovePlatform)
         {
-            calculatedPassengerMovment?.ForEach(passenger => 
+            calculatedPassengerMovment?.ForEach(passenger =>
             {
                 if (!passengerCache.ContainsKey(passenger.Transform))
                 {
@@ -76,7 +127,7 @@ namespace RaycastPhysics
                     Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.green);
 
                     // Found a passenger
-                    if (hit)
+                    if (hit && hit.distance != 0)
                     {
                         if (!movedPassengers.Contains(hit.transform))
                         {
@@ -113,7 +164,7 @@ namespace RaycastPhysics
                     RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, passengerLayer);
 
                     // Found a passenger
-                    if (hit)
+                    if (hit && hit.distance != 0)
                     {
                         if (!movedPassengers.Contains(hit.transform))
                         {
@@ -154,7 +205,7 @@ namespace RaycastPhysics
                     Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.green);
 
                     // Found a passenger
-                    if (hit)
+                    if (hit && hit.distance != 0)
                     {
                         if (!movedPassengers.Contains(hit.transform))
                         {
@@ -178,6 +229,30 @@ namespace RaycastPhysics
                 }
             }
             #endregion
+        }
+
+        private float Ease(float x)
+        {
+            float a = easeAmount + 1;
+            return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            if (localWayPoints != null)
+            {
+                var lineLength = 0.3f;
+                for (int i = 0; i < localWayPoints.Length; i++)
+                {
+                    var globalWayPointPosition =
+                    Application.isPlaying
+                        ? globalWayPoints[i]
+                        : localWayPoints[i] + (Vector2)transform.position;
+                    Gizmos.DrawLine(globalWayPointPosition - Vector2.up * lineLength, globalWayPointPosition + Vector2.up * lineLength);
+                    Gizmos.DrawLine(globalWayPointPosition - Vector2.left * lineLength, globalWayPointPosition + Vector2.left * lineLength);
+                }
+            }
         }
     }
 }

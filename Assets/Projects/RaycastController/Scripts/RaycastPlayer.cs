@@ -81,7 +81,7 @@ public class RaycastPlayer : MonoBehaviour
 
         // Apply gravity. if you want.
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime, new Vector2(0, vertical));
         DamagePlayer();
     }
 

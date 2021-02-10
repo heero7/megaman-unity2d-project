@@ -4,6 +4,8 @@ namespace RaycastPhysics
 {
     internal struct CollisionInfo
     {
+        public int FacingDirection { get; internal set; }
+        public bool FallingThroughPlatform { get; internal set; }
         public bool Above { get; internal set; }
         public bool Below { get; internal set; }
         public bool Left { get; internal set; }
