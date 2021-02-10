@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RaycastPhysics
 {
-    public struct CollisionInfo
+    internal struct CollisionInfo
     {
         public bool Above { get; internal set; }
         public bool Below { get; internal set; }

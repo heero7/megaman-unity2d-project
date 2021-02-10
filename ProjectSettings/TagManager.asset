@@ -20,6 +20,7 @@ TagManager:
   - PlayerHealthSlider
   - PlayerLivesText
   - MainVirtualCamera
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

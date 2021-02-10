@@ -7,11 +7,10 @@ namespace RaycastPhysics
     {
         private const float MaxClimbAngle = 80f;
         private const float MaxDescendAngle = 75f;
-
         private CollisionInfo collisionInfo;
-        public CollisionInfo CollisionInfo { get => collisionInfo; }
+        internal CollisionInfo CollisionInfo { get => collisionInfo; }
 
-        public void Move(Vector2 velocity)
+        public void Move(Vector2 velocity, bool standingOnPlatform = false)
         {
             // Every frame we have to update the ray origins
             UpdateRayCastOrigins();
@@ -25,6 +24,9 @@ namespace RaycastPhysics
             if (velocity.y != 0) HandleVerticalCollisions(ref velocity);
 
             transform.Translate(velocity);
+
+            // If standing on a platform, allow for jumping.
+            if (standingOnPlatform) collisionInfo.Below = true;
         }
 
         private void HandleVerticalCollisions(ref Vector2 velocity)
@@ -38,7 +40,7 @@ namespace RaycastPhysics
                 // If moving up, start from the topleft corner. If moving down, start from bottomleft corner.
                 Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.BottomLeft : raycastOrigins.TopLeft;
                 rayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x); // Add velocity on x axis, so we can check to where we will be. (This should only be done when we have a velocity.x value [right?])
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, groundLayer);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionLayer);
 
                 // Visualize the rays.
                 Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.green);
@@ -65,7 +67,7 @@ namespace RaycastPhysics
                 float directionX = Mathf.Sign(velocity.x);
                 rayLength = Mathf.Abs(velocity.x) + SkinWidth;
                 Vector2 rayOrigin = ((directionX == -1) ? raycastOrigins.BottomLeft : raycastOrigins.BottomRight) + Vector2.up * velocity.y;
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, groundLayer);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionLayer);
 
                 if (hit)
                 {
@@ -89,13 +91,15 @@ namespace RaycastPhysics
             {
                 Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.BottomLeft : raycastOrigins.BottomRight;
                 rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, groundLayer);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionLayer);
 
                 // Visualize the rays.
                 Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
 
                 if (hit)
                 {
+                    // If we're colliding with a moving platform that has moved through this object.
+                    if (hit.distance == 0) continue;
                     // To climb slopes.
                     // Find the angle between the normal and Vector2.up, this is the angle of the slopoe we're trying to climb.
                     // The ray hit the slope, at the point where we're trying to go.
@@ -168,7 +172,7 @@ namespace RaycastPhysics
             // Cast a ray downwards.
             // When going down a slope, the opposite bottom corner is what is touching the slope.
             Vector2 rayOrigin = directionX == -1 ? raycastOrigins.BottomRight : raycastOrigins.BottomLeft;
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, Mathf.Infinity, groundLayer);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, Mathf.Infinity, collisionLayer);
 
             if (hit)
             {

@@ -17,9 +17,9 @@ namespace RaycastPhysics
         [HideInInspector] protected float horizontalRaySpacing;
         [SerializeField] protected int verticalRayCount = 4;
         [HideInInspector] protected float verticalRaySpacing;
-        protected RaycastOrigins raycastOrigins;
+        internal RaycastOrigins raycastOrigins;
         protected BoxCollider2D _collider;
-        [SerializeField] protected LayerMask groundLayer;
+        [SerializeField] protected LayerMask collisionLayer; // Set a default here.
 
         // Start is called before the first frame update
         protected virtual void Start()
