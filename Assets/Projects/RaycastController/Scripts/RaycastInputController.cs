@@ -12,8 +12,8 @@ public class JumpInputEvent : UnityEvent { }
 public class RaycastInputController : MonoBehaviour
 {
     private RaycastInput controls;
-    public MoveInputEvent MoveInputEvent;
-    public JumpInputEvent JumpInputEvent;
+    public MoveInputEvent _moveInputEvent;
+    public JumpInputEvent _jumpInputEvent;
 
     private void OnEnable()
     {
@@ -21,17 +21,28 @@ public class RaycastInputController : MonoBehaviour
         controls.Gameplay.Move.performed += OnMovePerformed;
         controls.Gameplay.Move.canceled += OnMovePerformed;
         controls.Gameplay.Jump.started += OnJumpPerformed;
+
+        _jumpInputEvent = new JumpInputEvent();
+        _moveInputEvent = new MoveInputEvent();
+
+        SpawnManager.PlayerSpawnedEvent += SetupPlayerControls;
     }
+
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         Vector2 input = ctx.ReadValue<Vector2>();
-        MoveInputEvent.Invoke(input.x, input.y);
+        _moveInputEvent.Invoke(input.x, input.y);
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
-        JumpInputEvent.Invoke();
+        _jumpInputEvent.Invoke();
+    }
+
+    private void SetupPlayerControls(RaycastPlayer p)
+    {
+        _moveInputEvent.AddListener(p.OnMoveInput);
     }
 
     private void OnDisable() 
@@ -39,6 +50,8 @@ public class RaycastInputController : MonoBehaviour
         controls.Gameplay.Move.performed -= OnMovePerformed;
         controls.Gameplay.Move.canceled -= OnMovePerformed;
         controls.Gameplay.Jump.started -= OnJumpPerformed;
+
+        _moveInputEvent.RemoveAllListeners();
         controls.Gameplay.Disable();
     }
 
