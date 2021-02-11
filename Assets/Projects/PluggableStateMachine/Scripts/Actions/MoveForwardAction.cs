@@ -18,7 +18,12 @@ public class MoveForwardAction : StateAction
         // This is interesting, because this solves the problem of creating
         // a whole separate slew of Actions/States/Transitions/Conditions.
         // There only has to be one predefined number of actions, anyone can
-        // do and you just have to give them the option. 
+        // do and you just have to give them the option.
+    // Pig Chef solution
+        // Update the parameters of the movement script / input controlling script
+        // Example, this class can have access to the CharacterController.InputScript
+        // Then it can set values from that script CharacterController.InputScript.MovementVector.y = 3f;
+        // And this doesn't have to worry about calling in a Function like Move(parm1, parma2, param3)
     private void Move(PluggableStateController controller)
     {
         var currentKeyboard = Keyboard.current;
