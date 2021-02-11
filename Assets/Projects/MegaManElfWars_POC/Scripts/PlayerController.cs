@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
 
     #region StateMachines
     // Movement
-    public StateMachine<PlayerMovementState> MovementStateMachine { get; private set; }
+    public BardentStateMachine<PlayerMovementState> MovementStateMachine { get; private set; }
     public PlayerIdleState Idle { get; private set; }
     public PlayerRunState Run { get; private set; }
     public PlayerRisingState Rising { get; private set; }
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
     public PlayerHurtState Hurt { get; private set; }
     public PlayerIntroState Enter { get; private set; }
     // Action
-    public StateMachine<PlayerActionState> ActionStateMachine { get; private set; } // TODO: a lot of power with this accesibility.
+    public BardentStateMachine<PlayerActionState> ActionStateMachine { get; private set; } // TODO: a lot of power with this accesibility.
     public NoActionState NoAction { get; private set; }
     public MegamanRegularAttack Attack { get; private set; }
     #endregion
@@ -94,8 +94,8 @@ public class PlayerController : MonoBehaviour, IDamageReceiver
         Gravity = 2 * movementData.jumpHeight / Mathf.Pow(movementData.timeToJumpApex, 2); // TODO: Put this in the level object and have Level Manager read this value where needed.
         JumpForce = Gravity * movementData.timeToJumpApex;
         // TODO: Setup upper and lower colliders.
-        MovementStateMachine = new StateMachine<PlayerMovementState>();
-        ActionStateMachine = new StateMachine<PlayerActionState>();
+        MovementStateMachine = new BardentStateMachine<PlayerMovementState>();
+        ActionStateMachine = new BardentStateMachine<PlayerActionState>();
         _ladders = GameObject.FindGameObjectWithTag("Ladder").GetComponent<Tilemap>();
     }
 
