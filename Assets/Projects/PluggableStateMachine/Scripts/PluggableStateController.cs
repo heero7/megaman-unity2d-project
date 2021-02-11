@@ -5,6 +5,7 @@ using UnityEngine;
 public class PluggableStateController : MonoBehaviour
 {
     public State currentState;
+    public State remainState; // The state we remain in if we cannot transition.
     [SerializeField] private CharacterData characterData;
     public CharacterData CharacterData { get => characterData; }
     #region Debug
@@ -20,6 +21,14 @@ public class PluggableStateController : MonoBehaviour
 
     // Update is called once per frame
     void Update() => currentState.UpdateState(this);
+
+    public void TransitionToState(State next)
+    {
+        if (next != remainState)
+        {
+            currentState = next;
+        }
+    }
 
     private void OnDrawGizmos()
     {

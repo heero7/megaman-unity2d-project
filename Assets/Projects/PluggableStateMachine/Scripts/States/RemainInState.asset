@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24555d0bc39c58640a49ffded6332547, type: 3}
-  m_Name: HorizontalMovmentAction
+  m_Script: {fileID: 11500000, guid: 44d2d68ed80294243803201e7cb6891c, type: 3}
+  m_Name: RemainInState
   m_EditorClassIdentifier: 
+  actions: []
+  transitions: []
+  debugGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

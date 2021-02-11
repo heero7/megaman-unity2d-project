@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Run
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: cb92da05afad2454fb131612e5a178c1, type: 2}
+  - {fileID: 11400000, guid: f15ce2ac2ae960a438517ed23d0b1f73, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 014a30bf7c60d054bad0b0d224cd736a, type: 2}
+    trueState: {fileID: 11400000, guid: 2075695c70a871640aef7ca0cb5b100c, type: 2}
+    falseState: {fileID: 11400000, guid: 986fa6acce33ecf4bbfe8d962c190f3f, type: 2}
   debugGizmoColor: {r: 0, g: 1, b: 0.07855153, a: 1}

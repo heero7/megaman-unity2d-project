@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu(menuName = "PluggableStateMachine/Actions/MoveFowardAction")]
-public class HorizontalMovementAction : StateAction
+/// <summary>
+/// MoveForwardAction class. Applies movement
+/// in the direction requested.
+/// </summary>
+[CreateAssetMenu(menuName = "PluggableStateMachine/Actions/MoveFoward")]
+public class MoveForwardAction : StateAction
 {
     public override void Perform(PluggableStateController controller)
     {

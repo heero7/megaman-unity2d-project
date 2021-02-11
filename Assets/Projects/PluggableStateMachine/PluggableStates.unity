@@ -396,7 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d133051b839ab0448ab3d381711b671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 11400000, guid: afd1676998dadfa4480f3e5e4f7bf8ac, type: 2}
+  currentState: {fileID: 11400000, guid: 986fa6acce33ecf4bbfe8d962c190f3f, type: 2}
+  remainState: {fileID: 11400000, guid: 2075695c70a871640aef7ca0cb5b100c, type: 2}
   characterData: {fileID: 11400000, guid: 772abcd5f3c55674a91bfe898c5ffad2, type: 2}
   wireSphereRadius: 1
 --- !u!1 &1064558018

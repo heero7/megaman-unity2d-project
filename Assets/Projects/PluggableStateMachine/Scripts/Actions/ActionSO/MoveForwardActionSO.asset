@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd3de81f33141e458b5e944beb5a95f, type: 3}
-  m_Name: IdleAction
+  m_Script: {fileID: 11500000, guid: a23559b50c849c94485ff58a9d7bdfe3, type: 3}
+  m_Name: MoveForwardActionSO
   m_EditorClassIdentifier: 
