@@ -2,10 +2,9 @@
 
 /// <summary>
 /// Decision class. All subclasses will be responsible
-/// for checking if the state machine should transition
-/// states.
+/// for making a decision.
 /// </summary>
 public abstract class Decision : ScriptableObject
 {
-    public abstract bool Decide(PluggableStateController controller);
+    public abstract bool Decide(PluggableStateMachineController stateMachine);
 }

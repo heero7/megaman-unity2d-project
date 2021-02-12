@@ -13,43 +13,66 @@ public class State : ScriptableObject
     public Color debugGizmoColor = Color.gray;
     #endregion
 
+    // Inspector Description
+    // TODO: Make this a custom Inspector Window
+    [SerializeField] private string description;
+
+    public void OnEnter(PluggableStateMachineController stateMachine) => RunEntrances(stateMachine);
+
+    private void RunEntrances(PluggableStateMachineController stateMachine)
+    {
+        foreach (StateAction action in actions)
+        {
+            action.Entrance(stateMachine);
+        }
+    }
+
     /// <summary>
     /// Calls logic for this state in the game loop.
     /// </summary>
     /// <param name="controller">Reference to the controller.</param>
-    public void UpdateState(PluggableStateController controller)
+    public void UpdateState(PluggableStateMachineController stateMachine)
     {
-        PerformActions(controller);
-        CheckTransitions(controller);
+        PerformActions(stateMachine);
+        CheckTransitions(stateMachine);
     }
 
     /// <summary>
     /// Executes all the actions for the state.
     /// </summary>
     /// <param name="controller">Reference to the controller.</param>
-    private void PerformActions(PluggableStateController controller)
+    private void PerformActions(PluggableStateMachineController stateMachine)
     {
-        for (int i = 0; i < actions.Length; i++)
+        foreach (StateAction v in actions)
         {
-            actions[i].Perform(controller);
+            v.Perform(stateMachine);
         }
     }
 
-    private void CheckTransitions(PluggableStateController controller)
+    /// <summary>
+    /// Checks to see if the state machine should remain
+    /// in this state or moves to the next one.
+    /// </summary>
+    /// <param name="stateMachine">StateMachine controller</param>
+    private void CheckTransitions(PluggableStateMachineController stateMachine)
     {
-        for (int i = 0; i < transitions.Length; i++)
-        {
-            var decision = transitions[i].decision;
-            bool decisionSucceeded = decision.Decide(controller);
+        foreach (Transition transition in transitions)
+        {   
+            var decisions = transition.decisions;
+            var success = false;
+            foreach (var decision in decisions)
+            {
+                var decisionSucceeded = decision.Decide(stateMachine);
+                success = decisionSucceeded;
+                if (!decisionSucceeded) break;
+                
+            }
 
-            if (decisionSucceeded)
-            {
-                controller.TransitionToState(transitions[i].trueState);
-            }
-            else
-            {
-                controller.TransitionToState(transitions[i].falseState);
-            }
+            var nextState = success
+                ? transition.trueState
+                : transition.falseState;
+
+            stateMachine.TransitionToState(nextState);
         }
     }
 }

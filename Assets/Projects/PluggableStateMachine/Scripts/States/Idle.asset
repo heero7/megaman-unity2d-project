@@ -15,7 +15,19 @@ MonoBehaviour:
   actions:
   - {fileID: 11400000, guid: bcaafd9d72473ca40ac7ed9922a87a63, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 014a30bf7c60d054bad0b0d224cd736a, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: ea7d0713ae24fa5419674f817c536a06, type: 2}
+    trueState: {fileID: 11400000}
+    falseState: {fileID: 11400000, guid: 3f5b420868a081e46b2ca8f905ccc7c3, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: f62ecd496b977f64f8405f9b0cf791f1, type: 2}
+    - {fileID: 11400000, guid: ea7d0713ae24fa5419674f817c536a06, type: 2}
+    trueState: {fileID: 11400000, guid: afd1676998dadfa4480f3e5e4f7bf8ac, type: 2}
+    falseState: {fileID: 11400000, guid: 2075695c70a871640aef7ca0cb5b100c, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: f62ecd496b977f64f8405f9b0cf791f1, type: 2}
+    - {fileID: 11400000, guid: ea7d0713ae24fa5419674f817c536a06, type: 2}
     trueState: {fileID: 11400000, guid: afd1676998dadfa4480f3e5e4f7bf8ac, type: 2}
     falseState: {fileID: 11400000, guid: 2075695c70a871640aef7ca0cb5b100c, type: 2}
   debugGizmoColor: {r: 0.89015037, g: 1, b: 0.25943398, a: 1}
+  description: State when the character is doing nothing.

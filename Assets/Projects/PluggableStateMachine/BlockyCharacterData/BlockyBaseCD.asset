@@ -22,7 +22,7 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 4fe51336d079089409a7697e1c899ee2, type: 2}
   moveSpeed:
     UseConstant: 0
-    ConstantValue: 0
+    ConstantValue: 10
     Variable: {fileID: 11400000, guid: a32c31b8b8abebe4e8ed33a00597dc54, type: 2}
   jumpHeight:
     UseConstant: 0

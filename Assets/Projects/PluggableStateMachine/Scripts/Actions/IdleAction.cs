@@ -8,15 +8,12 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "PluggableStateMachine/Actions/IdleAction")]
 public class IdleAction : StateAction
 {
-    private Keyboard k;
-    public override void Perform(PluggableStateController controller)
+    public override void Perform(PluggableStateMachineController controller)
     {
         Idle();
     }
 
     private void Idle()
     {
-        // Nothing is being done here. 
-        // The only thing this will do is probably just play an animation.
     }
 }

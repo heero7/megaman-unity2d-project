@@ -16,7 +16,7 @@ namespace RaycastPhysics
         internal CollisionInfo CollisionInfo { get => collisionInfo; }
         private Vector2 playerInput;
 
-        protected override void Start()
+        protected override void Start() // TODO: Can this just be an OnEnable?
         {
             base.Start();
             collisionInfo.FacingDirection = 1;

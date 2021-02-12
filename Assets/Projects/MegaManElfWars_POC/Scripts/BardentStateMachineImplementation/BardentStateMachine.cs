@@ -1,3 +1,4 @@
+using System;
 public class BardentStateMachine<T> where T : IBardentState
 {
     public T CurrentState { get; private set; }
@@ -12,6 +13,7 @@ public class BardentStateMachine<T> where T : IBardentState
 
     public void ChangeState(T next)
     {
+        Type type; 
         Previous = CurrentState.ToString();
         CurrentState.OnExit();
         CurrentState = next;

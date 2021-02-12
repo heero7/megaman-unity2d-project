@@ -268,8 +268,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1028042722}
   - component: {fileID: 1028042721}
-  - component: {fileID: 1028042720}
   - component: {fileID: 1028042719}
+  - component: {fileID: 1028042720}
+  - component: {fileID: 1028042724}
   - component: {fileID: 1028042723}
   m_Layer: 11
   m_Name: Blocky
@@ -378,7 +379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028042718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -393,13 +394,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1028042718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d133051b839ab0448ab3d381711b671, type: 3}
+  m_Script: {fileID: 11500000, guid: c3591e47b4a24ca44ae695764f791f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: 986fa6acce33ecf4bbfe8d962c190f3f, type: 2}
   remainState: {fileID: 11400000, guid: 2075695c70a871640aef7ca0cb5b100c, type: 2}
+  wireSphereRadius: 0.7
+--- !u!114 &1028042724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028042718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1394fe9f043dfa4c88e1212f6ea50a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 772abcd5f3c55674a91bfe898c5ffad2, type: 2}
-  wireSphereRadius: 1
+  _intputReader: {fileID: 11400000, guid: 12c7229d2cbbcb74d8fd5b425fd0371c, type: 2}
 --- !u!1 &1064558018
 GameObject:
   m_ObjectHideFlags: 0

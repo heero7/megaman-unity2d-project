@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d2d68ed80294243803201e7cb6891c, type: 3}
-  m_Name: Run
+  m_Name: Rising
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: f15ce2ac2ae960a438517ed23d0b1f73, type: 2}
   - {fileID: 11400000, guid: 407f5441fb274aa4b88a3e4e4cd752a4, type: 2}
+  - {fileID: 11400000, guid: f15ce2ac2ae960a438517ed23d0b1f73, type: 2}
   - {fileID: 11400000, guid: cd61f26f01b2b5d4c932e045f9382d70, type: 2}
   transitions:
   - decisions:
-    - {fileID: 11400000, guid: f62ecd496b977f64f8405f9b0cf791f1, type: 2}
-    trueState: {fileID: 11400000, guid: 2075695c70a871640aef7ca0cb5b100c, type: 2}
-    falseState: {fileID: 11400000, guid: 986fa6acce33ecf4bbfe8d962c190f3f, type: 2}
-  debugGizmoColor: {r: 0, g: 1, b: 0.07855153, a: 1}
+    - {fileID: 0}
+    trueState: {fileID: 0}
+    falseState: {fileID: 0}
+  debugGizmoColor: {r: 1, g: 0, b: 0.099628925, a: 1}
   description: 
